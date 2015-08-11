@@ -1,3 +1,9 @@
+##########################################################
+#This scripts walks through several CKAN instances given by the CKAN instances project (https://github.com/ckan/ckan-instances/blob/gh-pages/config/instances.json) and collects information about the portals, the datasets, and tags. Data are stored as objects of the class Open Data Portal.
+
+#This script outputs a file that is suitable to be inserted in a (semantic) media wiki instance.
+##########################################################
+
 import urllib2
 import urllib
 import json
@@ -30,8 +36,8 @@ class OpenDataPortal:
 		for tag in self.matching_tags:
 			out_file.write( tag.name.encode('utf-8') + ';' + tag.ODP.name.encode('utf-8') + '\n')
 
-	#get all tags from a CKAN website and count the occurences
 	def load_tags(self):
+		"get all tags from a CKAN website and count the occurences"
 		response = False
 		try:		
 			response = urllib2.urlopen(self.url + '/api/3/action/tag_list')
@@ -197,15 +203,43 @@ def WriteWikiPages():
 	pages_ODP.close
 
 
-def WriteCSV():
+def WriteTagsCSV():
 	with open('ODP.pkl', 'rb') as input:
 		ODP =  pickle.load(input)
 
-	pages_ODP = open('tags.csv', 'wb')
+	tags_ODP = open('tags.csv', 'wb')
 
 	for o in ODP:
 		for t in o.tags:
-			pages_ODP.write(o.url.encode('utf-8') + ';' + t.name.encode('utf-8') + ';' + str(t.count).encode('utf-8') + '\n')
+			tags_ODP.write(o.url.encode('utf-8') + ';' + t.name.encode('utf-8') + ';' + str(t.count).encode('utf-8') + '\n')
+	
+	tags_ODP.close
+
+def WritePortalsCSV():
+	with open('ODP.pkl', 'rb') as input:
+		ODP =  pickle.load(input)
+
+	portals_ODP = open('portals.csv', 'wb')
+
+	for o in ODP:
+		portals_ODP.write(o.url.encode('utf-8') + ';' + str(o.num_of_tags).encode('utf-8') + ';' + str(o.num_of_packages).encode('utf-8') + '\n')
+
+	portals_ODP.close
+
+def CalculateStats():
+	with open('ODP.pkl', 'rb') as input:
+		ODP =  pickle.load(input)
+
+	print 'Number of portals: ' + str(len(ODP))
+
+	x = 0; y = 0
+	for o in ODP:
+		x = x + o.num_of_tags
+		y = y + o.num_of_packages
+	print 'Number of tags: ' + str(x)
+	print 'Number of packages: ' + str(y)
+	
+
 
 
 #LoadODPs()
@@ -217,6 +251,9 @@ def WriteCSV():
 #ODP = OpenDataPortal('http://dados.contraosagrotoxicos.org', 'Agro', 1, 1)
 #ODP.load_tags()
 
+
+#import cPickle as pickle
+#ODP =  pickle.load(open('ODP.pkl', 'rb'))
 
 
 
