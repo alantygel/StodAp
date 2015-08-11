@@ -75,7 +75,39 @@ function load_unique_tags()
 	save unique_tags.mat unique_tags
 end
 
+#####################################
+# 3. Plot Percentage Over N #########
+#####################################
 
+figure()
+
+subplot(2,2,1)
+percentage_over_1
+plot(100*sort(tags_over_n(:,2)))
+title('% of tags used more than once')
+axis([1 68 0 100])
+xlabel('Open Data Portals index')
+
+subplot(2,2,2)
+percentage_over_2
+plot(100*sort(tags_over_n(:,2)))
+axis([1 68 0 100])
+title('% of tags used more than twice')
+xlabel('Open Data Portals index')
+
+subplot(2,2,3)
+percentage_over_3
+plot(100*sort(tags_over_n(:,2)))
+axis([1 68 0 100])
+title('% of tags used more than three times')
+xlabel('Open Data Portals index')
+
+subplot(2,2,4)
+percentage_over_4
+plot(100*sort(tags_over_n(:,2)))
+axis([1 68 0 100])
+title('% of tags used more than four times')
+xlabel('Open Data Portals index')
 #number_of_portals = length(portals)
 #number_of_tags = length(tag)
 #number_of_different_tags = 

@@ -236,12 +236,63 @@ def CalculateStats():
 	for o in ODP:
 		x = x + o.num_of_tags
 		y = y + o.num_of_packages
-	print 'Number of tags: ' + str(x)
-	print 'Number of packages: ' + str(y)
-	
+	print 'Number of tags: ' , str(x)
+	print 'Number of packages: ' , str(y)
 
+	all_tags, unique_tags = CalculateUniqueTags()
 
+	print 'Number of loaded tags: ' , str(len(all_tags))
+	print 'Number of unique tags: ' , str(len(unique_tags))
 
+def CalculateUniqueTags():
+	with open('ODP.pkl', 'rb') as input:
+		ODP =  pickle.load(input)
+
+	all_tags = []
+	unique_tags = []
+
+	for o in ODP:
+		for t in o.tags:
+			all_tags.append(str(t.name.encode('utf-8')))
+
+	srtd = sorted(all_tags,key=str.lower)
+
+	unique_tags.append(srtd[0].lower().strip())
+
+	for t in srtd:
+		if t.lower().strip() != unique_tags[len(unique_tags)-1]:
+			unique_tags.append(t.lower().strip())
+
+	return all_tags, unique_tags
+
+def TagsOverN(N):
+
+	mfile = open('percentage_over_' + str(N) + '.m', 'w')
+	mfile.write ('tags_over_n = ['  + '\n')
+
+	with open('ODP.pkl', 'rb') as input:
+		ODP =  pickle.load(input)
+
+	tags_over_n_perc = []
+	for o in range(0,len(ODP)):
+		tags_over_n = 0
+		for t in ODP[o].tags:
+			if int(t.count) > N:
+				tags_over_n += 1
+		if len(ODP[o].tags) != 0:
+			res = float(tags_over_n)/float(len(ODP[o].tags))
+		else:		
+			res = 0
+
+		tags_over_n_perc.append(res)
+		mfile.write (str(o) + ' ' + str(res) + '\n')
+
+	mfile.write ('];')
+	mfile.close()
+	tags_over_n_perc = sorted (tags_over_n_perc)
+	return tags_over_n_perc	
+
+#CalculateStats()
 #LoadODPs()
 #LoadODPTags()
 #ShowODPTags()
@@ -251,9 +302,6 @@ def CalculateStats():
 #ODP = OpenDataPortal('http://dados.contraosagrotoxicos.org', 'Agro', 1, 1)
 #ODP.load_tags()
 
-
-#import cPickle as pickle
-#ODP =  pickle.load(open('ODP.pkl', 'rb'))
 
 
 
