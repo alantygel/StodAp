@@ -1,0 +1,1994 @@
+[
+    {
+        "description": "Austria\u2019s national data portal Offene Daten \u00d6sterreich contains both government data and data harvested from a number of city portals, including the CKAN portals at Linz and Graz.",
+        "title": "data.gv.at",
+        "url": "http://data.gv.at",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Austria",
+        "id": "data_gv_at"
+    },
+    {
+        "description": "The Brazilian national portal at http://dados.gov.br/ was built using a highly participative process, with planning and development meetings open to all interested citizens. It used CKAN in line with government policy to use free and open-source software where possible.",
+        "title": "dados.gov.br",
+        "url": "http://dados.gov.br",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Brazil",
+        "id": "dados_gov_br"
+    },
+    {
+        "description": "govdata.de is a federal data portal for Germany, which went live in February 2013. It includes data published by the federal government as well as data harvested from regional and city portals using CKAN\u2019s harvesting capabilities. It aims to increase the amount of data released under a fully open licence by 2014.",
+        "title": "GovData",
+        "url": "http://govdata.de",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Germany",
+        "id": "govdata_de"
+    },
+    {
+        "description": "The government of the Netherlands publishes its data at http://data.overheid.nl/. The site is built in Drupal and uses CKAN for the underlying catalogue.",
+        "title": "Data.overheid.nl",
+        "url": "http://data.overheid.nl",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Netherlands",
+        "id": "data_overheid_nl"
+    },
+    {
+        "description": "The Norwegian government\u2019s open data portal, launched in December 2010, includes data from its company register, leading the OpenCorporates blog to put Norway at the top of its Access to Company Data scoreboard.",
+        "title": "data.norge.no",
+        "url": "http://data.norge.no",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Norway",
+        "id": "data_norge_no"
+    },
+    {
+        "description": "The Slovak open data portal was created under the Initiative for Open Governance, which aims to improve governance through increased transparency, efficiency and accountability. It was launched in 2013.",
+        "title": "data.gov.sk",
+        "url": "http://data.gov.sk",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Slovakia",
+        "id": "data_gov_sk"
+    },
+    {
+        "description": "The UK\u2019s http://data.gov.uk/ was one of the first government data portals on its launch in 2009, using Drupal to build the site and CKAN as a back-end. It was relaunched in June 2012 with data search pages now presented directly by CKAN.",
+        "title": "Data.gov.uk",
+        "url": "http://data.gov.uk",
+        "facets": [
+            {
+                "key": "Featured",
+                "value": "Featured"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "United Kingdom",
+        "id": "data_gov_uk"
+    },
+    {
+        "description": "Uruguay\u2019s national open data portal https://catalogodatos.gub.uy/ was launched on 5 December 2012. National and local government agencies can add datsets to the catalogue.",
+        "title": "Cat\u00e1logo de Datos Abiertos",
+        "url": "https://catalogodatos.gub.uy/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Uruguay",
+        "id": "catalogodatos_gub_uy"
+    },
+    {
+        "description": "The US government announced in January 2013 that they were moving to CKAN for their open data catalogue, combining datasets previously published in different places. The relaunch went live in May 2013.",
+        "title": "Data.gov",
+        "url": "http://data.gov",
+        "facets": [
+            {
+                "key": "Featured",
+                "value": "Featured"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "USA",
+        "id": "data_gov"
+    },
+    {
+        "description": "The Icelandic government releases open government data on an experimental CKAN platform. All public agencies and ministries in Iceland can get access and publish data and it is made available at both opingogn.is and gogn.island.is.",
+        "title": "Opin G\u00f6gn",
+        "url": "http://opingogn.is/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Iceland",
+        "id": "opingogn_is"
+    },
+    {
+        "description": "Buenos Aires Data was launched by the Buenos Aires city government in March 2012, running CKAN 1.5. It was upgraded to version 1.7 in July 2012.",
+        "title": "Buenos Aires Data",
+        "url": "http://data.buenosaires.gob.ar/",
+        "facets": [
+            {
+                "key": "Featured",
+                "value": "Featured"
+            },
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Buenos Aires, Argentina",
+        "id": "data_buenosaires_gob_ar"
+    },
+    {
+        "description": "data.NSW brings together a list of NSW Government datasets available in one searchable website. The NSW Government aims to make data more accessible to the public and to industry to stimulate innovative approaches to service delivery.",
+        "title": "data.NSW",
+        "url": "http://data.nsw.gov.au",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Australasia"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "New South Wales, Australia",
+        "id": "data_nsw"
+    },
+    {
+        "description": "The state of Queensland launched the first governmental CKAN portal in Australia, Queensland Government data, in December 2012, with the help of the Open Knowledge Foundation and XVT Solutions, a local IT firm.",
+        "title": "Queensland Government data",
+        "url": "http://data.qld.gov.au",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Australasia"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Queensland, Australia",
+        "id": "data_qld_gov_au"
+    },
+    {
+        "description": "Data.gov.au provides an easy way to find, access and reuse public datasets from the Australian Government.",
+        "title": "data.gov.au",
+        "url": "http://data.gov.au",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Australasia"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Australia",
+        "id": "data_gov_au"
+    },
+    {
+        "description": "The South Australia Government Data Directory, built by the OKF together with the Government of the state of South Australia, was launched in May 2013. It makes available data from over 25 government bodies and departments.",
+        "title": "South Australian Government Data Directory",
+        "url": "http://data.sa.gov.au/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Australasia"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "South Australia, Australia",
+        "id": "data_sa_gov_au"
+    },
+    {
+        "description": "The City of Ottawa relaunched their open data portal in April 2013, moving it to CKAN in order to take advantage of the wide range of features and enhancements over the existing portal, including improved searching and faceting, the API enabling programmers to build data apps, and notifications and RSS feeds.",
+        "title": "City of Ottawa Open Data Catalog",
+        "url": "http://data.ottawa.ca/",
+        "facets": [
+            {
+                "key": "Featured",
+                "value": "Featured"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Ottawa, Canada",
+        "id": "data_ottawa_ca"
+    },
+    {
+        "description": "The Helsinki Region Infoshare aims to make regional information quickly and easily accessible to all. It is powered by CKAN and WordPress, and has over 900 datasets. The site has Finnish and English versions. The data is mainly statistical, giving a comprehensive and diverse outlook on a variety of urban phenomena, such as living conditions, economics and well-being, employment and transport.",
+        "title": "Helsinki Region Infoshare",
+        "url": "http://www.hri.fi",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Helsinki, Finland",
+        "id": "www_hri_fi"
+    },
+    {
+        "description": "Berlin Open Data provides data held by the State of Berlin. It was built in collaboration with the German chapter of the Open Knowledge Foundation.",
+        "title": "Berlin Open Data",
+        "url": "http://daten.berlin.de",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Berlin, Germany",
+        "id": "daten_berlin_de"
+    },
+    {
+        "description": "The city of Hamburg in Germany launched a beta version of their data portal in February 2013. The portal uses CKAN on the back-end. The API is available at opendata.hamburg.de.",
+        "title": "Open Data Portal Hamburg",
+        "url": "http://daten.hamburg.de/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Hamburg, Germany",
+        "id": "daten_hamburg_de"
+    },
+    {
+        "description": "The open data portal for the state of Rheinland-Pfalz (Rhineland Palatinate) went live in March 2013. It is a single point of access for administrative data from across the state.",
+        "title": "Rheinland Pfalz Open Data Plattform",
+        "url": "http://www.daten.rlp.de/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Hamburg, Germany",
+        "id": "www_daten_rlp_de"
+    },
+    {
+        "description": "The Hansestadt Rostock (Hanseatic City of Rostock) launched its data portal, www.opendata-hro.de, in February 2013. It contains data from the city in a wide range of areas, such as transport, environment, infrastructure and administrative data, with the aim that it should find commercial and other uses.",
+        "title": "OpenData.HRO",
+        "url": "http://www.opendata-hro.de/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Rostock, Germany",
+        "id": "www_opendata_hro_de"
+    },
+    {
+        "description": "The City of Bari, capital of the Puglia region, followed a number of other Italian administrations by releasing an Open Data catalogue in January 2013, with additional data being added gradually.",
+        "title": "Portale OpenData del Comune di Bari",
+        "url": "http://opendata.comune.bari.it/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Bari, Italy",
+        "id": "opendata_comune_bari_it"
+    },
+    {
+        "description": "The Province of Rome is the biggest Italian province, containing Rome as well as 120 other towns. It is one of the partners in the Commons for Europe project aiming to bring digital innovation to cities in Europe. As part of the project, the Province has been involved in building widely-available public wifi, crowdsourcing ideas for public policy, and in the release of Open Data via Open Data | Provincia di Roma, a new CKAN data portal.",
+        "title": "Il Portale Opendata della Provincia di Roma",
+        "url": "http://www.opendata.provincia.roma.it/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Province of Rome, Italy",
+        "id": "www_opendata_provincia_roma_it"
+    },
+    {
+        "description": "The Tuscan regional government Regione Toscana\u2018s Open Data portal dati.toscana.it was developed using CKAN 1.7.1 with several customisations, and launched in July 2012. It aims to encourage the publication of openly-licensed data by public administrations in Tuscany, and is part of the wider RTRT project to co-ordinate IT initiatives between public administrations in the region.",
+        "title": "Open Data della Regione Toscana",
+        "url": "http://dati.toscana.it/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Tuscany, Italy",
+        "id": "dati_toscana_it"
+    },
+    {
+        "description": "Arag\u00f3n Open Data provides data held by the Spanish region of Arag\u00f3n. It is published by the Arag\u00f3n government and went live in February 2013.",
+        "title": "Arag\u00f3n Open Data",
+        "url": "http://opendata.aragon.es/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Arag\u00f3n, Spain",
+        "id": "opendata_aragon_es"
+    },
+    {
+        "description": "DataGM was created by public sector organisations in Greater Manchester, including ten local councils. It aims to release and bring together in one place as much of the data they hold as possible. DataGM is coordinated by Trafford Council in partnership with FutureEverything, which seeks out and shares new artforms and technologies in creative ways.",
+        "title": "DataGM",
+        "url": "http://datagm.org.uk",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Greater Manchester, UK",
+        "id": "datagm_org_uk"
+    },
+    {
+        "description": "When the City and County of Denver, in Colorado, USA, wanted an open data portal, they were able to call on the assistance of the active data community running the state-wide OpenColorado (see below). Denver Open Data Catalog opened in July 2012 with 80 GIS geographical datasets.",
+        "title": "Denver Open Data Catalog",
+        "url": "http://data.denvergov.org/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Denver, Colorado, USA",
+        "id": "data_denvergov_org"
+    },
+    {
+        "description": "City of Santa Cruz Open Data was the first official deployment of CKAN in the USA when it launched in July 2012. It was developed with help from Code for America, an American NGO dedicated to \u2018reimagining government for the 21st century\u2019 by harnessing the power of the Web.",
+        "title": "Santa Cruz Open Data",
+        "url": "http://data.cityofsantacruz.com/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Santa Cruz, California, USA",
+        "id": "data_cityofsantacruz_com"
+    },
+    {
+        "description": "data.lexingtonKY.gov was built as a collaboration between the Lexington-Fayette Urban County Government and the local data community. It aims to \u201cpromote the openness, transparency and accountability of local government by providing high-value government data in standards compliant, machine readable format\u201d.",
+        "title": "Lexington's Open Data Portal",
+        "url": "http://data.lexingtonky.gov/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Lexington, Kentucky, USA",
+        "id": "data_lexingtonky_gov"
+    },
+    {
+        "description": "Besides the Brazilian government portal noted above, the Senate or upper house of the Brazilian parliament releases its data through its own portal. ",
+        "title": "The Brazilian Senate",
+        "url": "http://dadosabertos.senado.gov.br/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Brazil",
+        "id": "dadosabertos_senado_gov_br"
+    },
+    {
+        "description": "The European Union has its own portal for releasing data held by the various bodies of the Union, including Eurostat, the European Statistics Agency.",
+        "title": "EU Open Data",
+        "url": "http://open-data.europa.eu/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Europe",
+        "id": "open_data_europa_eu"
+    },
+    {
+        "description": "publicdata.eu, built by the Open Knowledge foundation as part of the LOD2 project, federates metadata from local and national data catalogues from across Europe.",
+        "title": "publicdata.eu",
+        "url": "http://publicdata.eu",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Europe",
+        "id": "publicdata_eu"
+    },
+    {
+        "description": "Open Data Meti is the open data portal of the Japanese Ministry of Economy, Trade and Industry.",
+        "title": "METI",
+        "url": "http://datameti.go.jp/data/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Asia"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Japan",
+        "id": "datameti_go_jp_data"
+    },
+    {
+        "description": "HealthData.gov is the Open Data portal of the US Department of Health and Human Services (HHS), released under the Health Data Initiative. It is built on a CKAN portal.",
+        "title": "HealthData.gov",
+        "url": "http://healthdata.gov/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "USA",
+        "id": "healthdata_gov"
+    },
+    {
+        "description": "The International Aid Transparency Initiative has a data portal where it publishes an index of data on international development activities, with data from donor organisations and countries.",
+        "title": "The International Aid Transparency Initiative",
+        "url": "http://iatiregistry.org",
+        "facets": [
+            {
+                "key": "Featured",
+                "value": "Featured"
+            },
+            {
+                "key": "Region",
+                "value": "Worldwide"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Worldwide",
+        "id": "iatiregistry_org"
+    },
+    {
+        "description": "odaa.dk is a local and regional open data portal for Aarhus and The Central Region of Denmark. It was launched in betaversion in April 2013. The aim is to realease data from the Municipality, the Region and the University \u2013 realtime data with automated harvesting when possible. It is built in Drupal and CKAN.",
+        "title": "Open Data Aarhus",
+        "url": "http://www.odaa.dk/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Aarhus, Denmark",
+        "id": "www_odaa_dk"
+    },
+    {
+        "description": "Linz Open Data is part of the Open Commons Region Linz, a project to make the region\u2019s digital public goods freely accessible. It offers statistical, mapping, election, transport and other data. The site is built in OpenCms with CKAN as a back-end, while also exposing the CKAN interface directly at ckan.data.linz.gv.at. The same architecture is used by Open Government Data Graz. Both are harvested by the Austrian national open data portal.",
+        "title": "Linz Open Data",
+        "url": "http://data.linz.gv.at/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Linz, Austria",
+        "id": "data_linz_gv_at"
+    },
+    {
+        "description": "Graz Open Data is part of the Open Commons Region Graz, a project to make the region\u2019s digital public goods freely accessible. It offers statistical, mapping, election, transport and other data.",
+        "title": "Graz Open Data",
+        "url": "http://data.graz.gv.at/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Graz, Austria",
+        "id": "data_graz_gv_at"
+    },
+    {
+        "description": "The DataHub, administered by the Open Knowledge Foundation, was the first ever CKAN installation. Anyone can add or edit data or records, so the site can be thought of a bit like a 'data wiki'. The DataHub is widely used by a variety of groups, including the Linked Data community who use it to generate the LOD cloud diagram showing the current extent of Linked Data sets.",
+        "title": "The Datahub",
+        "url": "http://datahub.io/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Worldwide"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Worldwide",
+        "id": "datahub_io"
+    },
+    {
+        "description": "OffeneDaten.de, run by the Open Knowledge Foundation Germany, is a community data portal aiming to provide an independent and comprehensive range of data from different sources, including public administrations, research, and private organisations.",
+        "title": "OffeneDaten.de",
+        "url": "http://offenedaten.de/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Germany",
+        "id": "offenedaten_de"
+    },
+    {
+        "description": "",
+        "title": "OpenColorado",
+        "url": "http://opencolorado.org/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Colorado, USA",
+        "id": "opencolorado_org"
+    },
+    {
+        "description": "Open Data Hub Italia, run as a public service by data consultancy SciamLab, harvests records from many different regional data portals throughout Italy.",
+        "title": "Open Data Hub Italia",
+        "url": "http://www.opendatahub.it/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Italy",
+        "id": "www_opendatahub_it"
+    },
+    {
+        "description": "The Greek Open Data Hub is a project run by the Open Knowledge Foundation Greece, including a CKAN data repository and other tools.",
+        "title": "Greek Open Data Hub",
+        "url": "http://open-data.okfn.gr/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Greece",
+        "id": "open_data_okfn_gr"
+    },
+    {
+        "description": "A community-run data portal for France.",
+        "title": "NosDonn\u00e9es.fr",
+        "url": "http://www.nosdonnees.fr/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "France",
+        "id": "www_nosdonnees_fr"
+    },
+    {
+        "description": "A community-run data portal for Russia.",
+        "title": "OpenGovData.ru",
+        "url": "http://hubofdata.ru/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Russia",
+        "id": "hubofdata_ru"
+    },
+    {
+        "description": "At datacatalogs.org, a group of Open Data experts from around the world maintain a comprehensive list of open data catalogues (including, of course, the ones listed on this page).",
+        "title": "datacatalogs.org",
+        "url": "http://datacatalogs.org/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Worldwide"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Worldwide",
+        "id": "datacatalogs_org"
+    },
+    {
+        "description": "The Open Africa Platform initiative aims to be largest repository of Data on the African continent - a Library of Congress of Data for African for use by citizens, media, activists, governments and civil society. It is part of the Ujuzi Initiative which is created and funded by the Africa Media Initiative (AMI), the World Bank Institute (WBI) and Google.",
+        "title": "Africa Open Data",
+        "url": "http://africaopendata.org/",
+        "facets": [
+            {
+                "key": "Featured",
+                "value": "Featured"
+            },
+            {
+                "key": "Region",
+                "value": "Africa"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Africa",
+        "id": "africaopendata_org"
+    },
+    {
+        "description": "Open Virginia is a volunteer-run catalogue of open government data published about the Commonwealth of Virginia \u2014 APIs, bulk downloads, and links to third-party data sources.",
+        "title": "Open Virginia",
+        "url": "http://data.openva.com/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Virginia, USA",
+        "id": "data_openva_com"
+    },
+    {
+        "description": "The Houston Data Portal is a project of Code for Houston, a citizen's initiative of programmers in Houston, Texas, aiming to improve the city.",
+        "title": "Houston Data Portal",
+        "url": "http://data.codeforhouston.com/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Houston, USA",
+        "id": "data_codeforhouston_com"
+    },
+    {
+        "description": "Codeando M\u00e9xico is a civic startup which aims to build the largest community-driven open data platform in Mexico, bringing together a range of key players and data sources.",
+        "title": "Codeando M\u00e9xico",
+        "url": "http://datos.codeandomexico.org/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Mexico",
+        "id": "datos_codeandomexico_org"
+    },
+    {
+        "description": "OpenDataDC is a public data catalog for and by the people of Washington, DC. It complements the catalog maintained by the city government at data.dc.gov which houses official municipal data. OpenData DC is a project of Code for DC.",
+        "title": "OpenDataDC",
+        "url": "http://opendatadc.org/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Washington DC, USA",
+        "id": "opendatadc_org"
+    },
+    {
+        "description": "Open data website by the Federal Public Administration of the United Mexican States.",
+        "title": "datos.gob.mx",
+        "url": "http://datos.gob.mx/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Mexico",
+        "id": "datos_gob_mx"
+    },
+    {
+        "description": "A federated open data portal run by the Department of Gironde (west-south of France, capitale Bordeaux). Hosts datasets published by local public authorities, associations and citizens.",
+        "title": "Ressourcerie Datalocale",
+        "url": "http://catalogue.datalocale.fr",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "France",
+        "id": "catalogue_datalocale_fr"
+    },
+    {
+        "description": "Canada's new portal, data.gc.ca, is a key part of Canada\u2019s Action Plan on Open Government to enhance transparency and accountability. data.gc.ca provides one-stop access to Government of Canada data and information.",
+        "title": "Data.gc.ca",
+        "url": "http://data.gc.ca",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Canada",
+        "id": "data_gc_ca"
+    },
+    {
+        "description": "Open Data portal listing datasets from various organizations from the Canary Islands.",
+        "title": "Open Data Canarias",
+        "url": "http://opendatacanarias.es/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Canary Islands, Spain",
+        "id": "opendatacanarias_es"
+    },
+    {
+        "description": "Edo State Open Data is Nigeria\u2019s first open data portal. The site was developed with support from the World Bank and a dedicated team in Benin City. A geospatial team is actively mapping infrastructure and resources for presentation on the site.",
+        "title": "Edo State, Nigeria",
+        "url": "http://data.edostate.gov.ng/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Africa"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Edo, Nigeria",
+        "id": "data_edostate_gov_ng"
+    },
+    {
+        "description": "Portal de Datos P\u00fablicos in Argentina is an open government and transparency initiative. It went live in August 2013, under the National System of Public Data (SINDAP) created by a resolution of ministers.",
+        "title": "Portal de Datos P\u00fablicos",
+        "url": "http://datospublicos.gob.ar/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Argentina",
+        "id": "datospublicos_gob_ar"
+    },
+    {
+        "description": "The Detection of Archaeological Residues using Remote-sensing Techniques (DART) project was initiated in 2010 in order to investigate the ability of various sensors to detect archaeological features in \u2018difficult\u2019 circumstances. It developed an automated ingest sequence that adds rich metadata to each resource, and hosts over 1tb of data under open licences.",
+        "title": "DART",
+        "url": "http://dartportal.leeds.ac.uk/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Leeds, United Kingdom",
+        "id": "dartportal_leeds_ac_uk"
+    },
+    {
+        "description": "Bermuda.io was launched in September 2013 by two local developers, to promote open data and encourage citizen engagement and participation. They launched the website with key public documents and statistics covering 20 years, and plan to publish a wide range of public data in both human and machine readable formats.",
+        "title": "Bermuda.io",
+        "url": "http://bermuda.io/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Bermuda",
+        "id": "bermuda_io"
+    },
+    {
+        "description": "The \u201cOpen Government Data at the Confederation\u201d project is a joint undertaking by the Swiss Federal Archives and their project partners to create a central pilot portal providing access to open data from the Swiss authorities.",
+        "title": "Swiss Open Government Data",
+        "url": "http://opendata.admin.ch/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Switzerland",
+        "id": "opendata_admin_ch"
+    },
+    {
+        "description": "M\u00e1laga is committed to the global initiative that aims to make available to all citizens and companies the information held by public authorities.",
+        "title": "Datos abiertos M\u00e1laga",
+        "url": "http://datosabiertos.malaga.eu/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Malaga, Spain",
+        "id": "datosabiertos_malaga_eu"
+    },
+    {
+        "description": "The Copenhagen data portal data.kk.dk went live in September 2013. It aims to increase transparency, foster dialogue between the municipality and citizens, and stimulate innovation and growth by enabling apps and services to be built on city data. The municipality is in dialogue with a range of European cities and hopes to benefit from their experience with Open Data.",
+        "title": "Open Data K\u00f8benhavn",
+        "url": "http://data.kk.dk/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Copenhagen, Denmark",
+        "id": "data_kk_dk"
+    },
+    {
+        "description": "In Spain, the Markets and Competition Commission (CNMC) decided to release data openly to build transparency and participation, create economic value, and improve the efficiency of the organisation itself. The site went live in beta in October 2013. ",
+        "title": "CNMC Open Data",
+        "url": "http://opendata.cmt.es/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "Spain",
+        "id": "opendata_cmt_es"
+    },
+    {
+        "description": "dati.gov.it is the official Open Data portal of Italy. It relaunched using CKAN in October 2013, partly to gain the advantages of CKAN's harvester to ingest data from the many local government data portals in Italy.",
+        "title": "dati.gov.it",
+        "url": "http://dati.gov.it/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Italy",
+        "id": "dati_gov_it"
+    },
+    {
+        "description": "The City of Montr\u00e9al, in Quebec, Canada, launched this open data portal in beta in October 2013. It combines CKAN with the Wordpress content management system.",
+        "title": "Montr\u00e9al Open Data",
+        "url": "http://donnees.ville.montreal.qc.ca/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Montr\u00e9al, Canada",
+        "id": "donnees_ville_montreal_qc_ca"
+    },
+    {
+        "description": "Glasgow Open Data is part of Open Glasgow, a project funded with a Future Cities grant from the UK government. The data will be used to build an integrated view of Glasgow through maps, widgets and apps. Other public, private, and voluntary organisations are invited to use the platform to open and share their data.",
+        "title": "Glasgow Open Data",
+        "url": "http://data.glasgow.gov.uk/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Glasgow, Scotland, UK",
+        "id": "data_glasgow_gov_uk"
+    },
+    {
+        "description": "Open data portal for the municipality of Recife, Brazil.",
+        "title": "Dados Recife",
+        "url": "http://dados.recife.pe.gov.br/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Recife, Brazil",
+        "id": "dados_recife_pe_gov_br"
+    },
+    {
+        "description": "Open data portal for the region of Wallonia, Belgium, developed by the Walloon Telecommunications Agency (AWT).",
+        "title": "opendata.awt.be",
+        "url": "http://opendata.awt.be/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Wallonia, Belgium",
+        "id": "opendata_awt_be"
+    },
+    {
+        "description": "A community-run open data portal for Hungary, including data from government, scientific and cultural institutions, business and citizens.",
+        "title": "opendata.hu",
+        "url": "http://opendata.hu/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Hungary",
+        "id": "opendata_hu"
+    },
+    {
+        "description": "Open data portal for the province of Trentino, Italy.",
+        "title": "Open Data Trentino",
+        "url": "http://dati.trentino.it/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Trentino, Italy",
+        "id": "dati_trentino_it"
+    },
+    {
+        "description": "In 2013, the Romanian government established the Department of Online Services and Design, responsible among other things for Open Data. The Department created data.gov.ro to empower citizens to identify, download and use public datasets created or held by government.",
+        "title": "data.gov.ro",
+        "url": "http://data.gov.ro/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Romania",
+        "id": "data_gov_ro"
+    },
+    {
+        "description": "Open data portal for the municipality of Umea, in the north of Sweden.",
+        "title": "OpenUmea",
+        "url": "http://www.openumea.se/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Umea, Sweden",
+        "id": "open_umea"
+    },
+    {
+        "description": "Open data portal for the City of Surrey in British Columbia.",
+        "title": "City of Surrey Open Data Catalogue",
+        "url": "http://data.surrey.ca/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "Surrey, British Columbia, Canada",
+        "id": "data_surrey_ca"
+    },
+    {
+        "description": "Rotterdam Open Data Store provides data held by the city of Rotterdam. It was launched in 2012 as a collaboration between the city of Rotterdam and the Rotterdam University of applied sciences.",
+        "title": "Rotterdam Open Data Store",
+        "url": "http://rotterdamopendata.nl/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Rotterdam, Netherlands",
+        "id": "rotterdamopendata_nl"
+    },
+    {
+        "description": "Opendata C\u00e1ceres was launched in 2014 by the city government of C\u00e1ceres. This portal aims to share the official data of the city to their citizens, and especially to developers. That is why all the datasets are ranked as 5 stars by Tim Berners-Lee's ranking.",
+        "title": "Opendata C\u00e1ceres",
+        "url": "http://opendata.caceres.es/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "C\u00e1ceres, Spain",
+        "id": "opendataCaceres"
+    },
+    {
+        "description": "Copenhagen Data features open data from Copenhagen Municipality including for instance infrastructural and traffic data. The purpose of the portal is to open up data from the many different data systems of the city.",
+        "title": "Copenhagen Data",
+        "url": "http://data.kk.dk/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Copenhagen, Denmark",
+        "id": "copenhagen_data"
+    },
+    {
+        "description": "Open Data Aarhus aims to make data from Denmark's second-largest city Aarhus freely and openly available to support productivity and innovation - as well as more efficient use of public data.",
+        "title": "Open Data Aarhus",
+        "url": "http://www.odaa.dk/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Aarhus, Denmark",
+        "id": "open_data_aarhus"
+    },
+    {
+        "description": "The data catalogue for the National Oceanic and Atmospheric Administration (NOAA)",
+        "title": "National Oceanic and Atmospheric Administration (United States)",
+        "url": "https://data.noaa.gov/dataset",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "North America"
+            },
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            }
+        ],
+        "location": "United States",
+        "id": "data_noaa_gov_dataset"
+    },
+    {
+        "description": "A community led site aggregating public open data in Uganda, map layers and news. Built with CKAN, Drupal and Geonode.",
+        "title": "Open Data in Uganda",
+        "url": "http://data.ug/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Africa"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Uganda",
+        "id": "data_ug"
+    },
+    {
+        "description": "Opendata C\u00e1ceres was launched in 2014 by the city government of C\u00e1ceres. This portal aims to share the official data of the city to their citizens, and especially to developers. That is why all the datasets are ranked as 5 stars by Tim Berners-Lee's ranking.",
+        "title": "Opendata C\u00e1ceres",
+        "url": "http://opendata.caceres.es/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "C\u00e1ceres, Spain",
+        "id": "opendata_caceres_es"
+    },
+    {
+        "description": "Portal for the city of Porto Alegre, capital of the Rio Grande do Sul state in Brazil. Using CKAN 2.1",
+        "title": "DataPOA",
+        "url": "http://datapoa.com.br/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Porto Alegre, RS, Brazil",
+        "id": "datapoa_com_br"
+    },
+    {
+        "description": "Portal for the brazilian state Rio Grande do Sul. Using CKAN 2.2.",
+        "title": "DadosRS",
+        "url": "http://dados.rs.gov.br/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Rio Grande do Sul, Brazil",
+        "id": "dados_rs_gov_br"
+    },
+    {
+        "description": "Portal for the brazilian state Rio Grande do Sul. Using CKAN 2.2.",
+        "title": "Data.Rio",
+        "url": "http://data.rio.rj.gov.br/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Rio de Janeiro, RJ, Brazil",
+        "id": "data_rio_rj_gov_br"
+    },
+    {
+        "description": "This is the official Open Data Catalogue of Municipality of Gortynia in Greece, launched during April 2014. At this stage (beta), is mainly based on Gortynia Municipality\u2019s open geospatial datasets, as well as open data from third public sector\u2019s parties. The catalogue has been smoothly integrated with Gortynia\u2019s INSPIRE Spatial Data Infrastructure (SDI), in the sense they are dynamically connected. It provides simple (preview) and advanced (Geoportal) view of datasets, downloading in various formats (shapefile, kml, geotiff). The catalogue is built using FOSS, such as CKAN, GET SDI Portal, GeoServer, Geonetwork.",
+        "title": "Open Data Gortynia",
+        "url": "http://opendatagortynia.gr/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "Europe"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Gortynia, Greece",
+        "id": "open_data_gortynia_gr"
+    },
+    {
+        "description": "",
+        "title": "Sherbrooke Open Data",
+        "url": "http://donnees.ville.sherbrooke.qc.ca",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "Canada",
+        "id": "donnees_ville_sherbrooke_qc_ca"
+    },
+    {
+        "description": "Community site that gathers open data sources across Belgium and advocates the use of open data through examples.",
+        "title": "OpenBelgium",
+        "url": "http://portal.openbelgium.be",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Belgium",
+        "id": "portal_openbelgium_be"
+    },
+    {
+        "description": "Ecuador's current only open data portal, though not government affiliated. This is a civil society iniciative, created and coordinated by Fundapi (http://www.fundapi.org).",
+        "title": "datosabiertos.ec",
+        "url": "http://datosabiertos.ec",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            },
+            {
+                "key": "Region",
+                "value": "South America"
+            }
+        ],
+        "location": "Ecuador",
+        "id": "datosabiertos_ec"
+    },
+    {
+        "description": "\"Offene Daten Mettmann\" is an Open Data and Open Government Data portal for the city of Mettmann in Germany.\n\nIt's driven and maintained by the local pirates party, but open for additional stakeholders. Main data source is currently the data from the local city government, fetched from the so called \"Ratsinformationssystem\". But we also add open data from other areas of interest.",
+        "title": "Offene Daten Mettmann",
+        "url": "http://www.offene-daten.me",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Mettmann, Germany",
+        "id": "www_offene-daten_me"
+    },
+    {
+        "description": "Urban Data Challenge (UDC) will conduct efforts to promote public and distribution of data to each agency to promote the activation of exchange of stakeholders in industry, academia and government, and other local governments.",
+        "title": "Urban Data Challenge on CKAN",
+        "url": "http://udct-data.aigid.jp",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Academic"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Tokyo, Japan",
+        "id": "udct-data_aigid_jp"
+    },
+    {
+        "description": "The Grand Rapids Open Data catalog is a collaborative project between the City of Grand Rapids, MI and Friendly Code, a Code for America Brigade.\n",
+        "title": "Grand Rapids Open Data",
+        "url": "http://data.grcity.us",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "Grand Rapids, MI",
+        "id": "data_grcity_us"
+    },
+    {
+        "description": "It is used for appsforgreece in Thessaloniki. ",
+        "title": "cities open data hub",
+        "url": "http://cities.opendatahub.gr",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Greece",
+        "id": "cities_opendatahub_gr"
+    },
+    {
+        "description": "http://open-data.okfn.gr/",
+        "title": "Greek Open Data Hub",
+        "url": "http://opendatahub.gr",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Greece",
+        "id": "opendatahub_gr"
+    },
+    {
+        "description": "CivicData is a freely available open data portal that can be leveraged by both state and local governments and civic hackers alike. It can be used to house data that powers civic applications and new services focused on improving citizen engagement and making communities work better.",
+        "title": "CivicData",
+        "url": "http://www.civicdata.io",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "United States",
+        "id": "www_civicdata_io"
+    },
+    {
+        "description": "A CKAN site providing ISO 19115 Japan Metadata Profile (JMP) 2.0 metadata of more than 67,000 datasets.",
+        "title": "Geospatial Information Clearinghouse",
+        "url": "http://ckan.gsi.go.jp",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "National Government"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Japan",
+        "id": "ckan_gsi_go_jp"
+    },
+    {
+        "description": "The Swedish national portal for Open Data",
+        "title": "\u00d6ppna Data",
+        "url": "http://oppnadata.se",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "National Government"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Sweden",
+        "id": "oppnadata_se"
+    },
+    {
+        "description": "The HDX Dataset Repository complements HDX Analytics (http://docs.hdx.rwlabs.org/project-details/analytics/) with a community-driven space for quickly finding and sharing humanitarian data.\n\nThe dataset repository provides a single place where members of the humanitarian community can upload and download spreadsheets and other data files.  We are implementing the repository using CKAN.  \n\n\nData types\n---------------\n\nWe plan to launch a beta version of the dataset repository in early April, including data from our pilot countries (Colombia, Kenya and Yemen). In time, the collection for each country might include such datasets as regional demographics, who is doing what where (3W), needs assessments, pointers to geographical datasets in locations such as the COD-FOD registry, cluster-specific information about schools or shelters, and caseload data about the number of IDPs or refugees in a certain location. The dataset repository is a collaborative space for humanitarians, and data sources could be as varied as UNHCR, WFP, NGOs, or the local government, among others.\n\nThe HDX team will be also sharing a large amount of pre-crisis data (e.g. GDP, under-5 mortality rates) that we have been collecting in collaboration with ScraperWiki. This data includes over 100 indicators from trusted sources such as the World Bank, UNICEF and WHO, and currently includes about 300,000 data points for 240 territories going back sometimes as far as 1950 (see visual below).\n\n",
+        "title": "Humanitarian Data Exchange Repository",
+        "url": "http://data.hdx.rwlabs.org",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "None"
+            }
+        ],
+        "location": "",
+        "id": "data_hdx_rwlabs_org"
+    },
+    {
+        "description": "Datamx.io is the Open Data Civic Platform in Mexico, it aims to create an ecosystem where government, non-profits, journalists and civic hackers can get together to create civic innovation. ",
+        "title": "datamx.io",
+        "url": "http://datamx.io",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "Mexico",
+        "id": "datamx_io"
+    },
+    {
+        "description": "Data for Japan which is formerly known as CKAN Japanese  is a community project which aims to aggregate open data in Japan. The site is hosted by Linked Open Data Initiative, Code for Japan and Open Knowledge Foundation Japan. ",
+        "title": "Data for Japan",
+        "url": "http://dataforjapan.org",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Japan",
+        "id": "dataforjapan_org"
+    },
+    {
+        "description": "Yokohama Open Data Portal is a community-based data portal site for City of Yokohama in Japan. It collects datasets provided by the local government mainly. ",
+        "title": "Yokohama Open Data Portal",
+        "url": "http://data.yokohamaopendata.jp",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Yokohama, Japan",
+        "id": "data_yokohamaopendata_jp"
+    },
+    {
+        "description": "(As former developer) \nThis site is organized by Ministry of Economy, Trade and Industry in Japan as an experimental site to examine the open data policy of Japanese government. ",
+        "title": "Open DATA METI",
+        "url": "http://datameti.go.jp",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "National Government"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Japan",
+        "id": "datameti_go_jp"
+    },
+    {
+        "description": "(third-party submission)\nThis site was set up as a trial version of the Data Catalog Site. Its purposes are to provide a sphere for the use of data owned by different governmental ministries and agencies as open data and to present the image of open data to both data providers and data users.",
+        "title": "data.go.jp",
+        "url": "http://www.data.go.jp",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "National Government"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Japan",
+        "id": "www_data_go_jp"
+    },
+    {
+        "description": "(third-party submission)\nDATA CITY sabae is the open data catalog site of Sabae City in Fukui prefecture in Japan. It has no datasets now, so It looks like still under development.\n",
+        "title": "DATA CITY Sabae",
+        "url": "http://ckan.sabae.jrrk.org",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Sabae, Japan",
+        "id": "ckan_sabae_jrrk_org"
+    },
+    {
+        "description": "(Third party submission)\nThis site is an open data portal site provided by non-profit organization Lisra. \n",
+        "title": "Opendata Lisra",
+        "url": "http://opendata.lisra.jp",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            },
+            {
+                "key": "Region",
+                "value": "Asia"
+            }
+        ],
+        "location": "Japan",
+        "id": "opendata_lisra_jp"
+    },
+    {
+        "description": "CKAN catalogue (combined with Liferay Front-end) for Open Data in the City of Amsterdam.",
+        "title": "Amsterdam Open Data.nl",
+        "url": "http://www.amsterdamopendata.nl",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Amsterdam, The Netherlands",
+        "id": "www_amsterdamopendata_nl"
+    },
+    {
+        "description": "Clearinghouse for GIS datasets",
+        "title": "Minnesota Geospatial Commons",
+        "url": "http://gisdata.mn.gov",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "Minnesota",
+        "id": "gisdata_mn_gov"
+    },
+    {
+        "description": "This is a Data Hub for Salzburgerland. Here we began publishing Touristic datasets related to the region of Salzburg as Linked Open Data for public consumption by data experts, developers and general audience. \n",
+        "title": "data.salzburgerland.com",
+        "url": "http://data.salzburgerland.com",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Europe",
+        "id": "data_salzburgerland_com"
+    },
+    {
+        "description": "Federated systems of data providers releasing data to support exploration for and development of geothermal resources. Academic institutions and government (state and federal) geological surveys are providing data. CKAN is used as an aggregator for metadata from nodes, and we have an installable CKAN/GeoServer stack  to make deploying new nodes as easy as we can. Metadata integration uses OGC CSW and an ISO metadata profile.",
+        "title": "National Geothermal Data System",
+        "url": "http://geothermaldata.org",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Other Organizations"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "United States",
+        "id": "geothermaldata_org"
+    },
+    {
+        "description": "L\u2019Annuario in questa nuova veste va ad affiancarsi alla pubblicazione del Bollettino mensile di statistica che propone oltre a focus demografici diversi ogni mese, il punto sull\u2019andamento dei prezzi al consumo e sull\u2019andamento meteorologico, oltre alla pubblicazione dei report completi delle numerose ricerche e indagini che l\u2019ufficio continua a produrre. \n\nhttp://annuario.comune.fi.it/about",
+        "title": "Annuario statistico del Comune di Firenze",
+        "url": "http://annuario.comune.fi.it",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            },
+            {
+                "key": "Region",
+                "value": "Europe"
+            }
+        ],
+        "location": "Italy",
+        "id": "annuario_comune_fi_it"
+    },
+    {
+        "description": "La Iniciativa de Datos Abiertos Vinculados del Gobierno de Misiones busca aumentar el acceso y uso p\u00fablico a conjuntos de datos de valor, que sean legibles por m\u00e1quinas, y hayan sido generados por el Poder Ejecutivo del Gobierno de Misiones. ",
+        "title": "Portal de Datos Abiertos del Gobierno de Misiones",
+        "url": "http://www.datos.misiones.gov.ar",
+        "facets": [
+            {
+                "value": "South America",
+                "key": "Region"
+            },
+            {
+                "value": "Local / Regional Government",
+                "key": "Type"
+            }
+        ],
+        "location": "Posadas, Argentina",
+        "id": "www_datos_misiones_gov_ar"
+    },
+    {
+        "description": "The Energy Data eXchange (EDX) was developed and is maintained by the Department of Energy (DOE) National Energy Technology Laboratory (NETL) to support internal and external coordination and collaboration of fossil energy research. EDX not only provides access to internal and external datasets, but also provides the tools to interact with that data. The CKAN platform was chosen to foster collaboration with other CKAN sites (i.e Data.gov).",
+        "title": "Energy Data eXchange",
+        "url": "https://edx.netl.doe.gov",
+        "facets": [
+            {
+                "value": "North America",
+                "key": "Region"
+            },
+            {
+                "value": "National Government",
+                "key": "Type"
+            }
+        ],
+        "location": "United States",
+        "id": "edx_netl_doe_gov"
+    },
+    {
+        "description": "The data.bris Research Data Repository is maintained by the University of Bristol Research Data Service. The Service is a Library-led collaboration with IT Services and Research and Enterprise Development.\n\nThe data.bris Research Data Repository is an online digital repository of multi-disciplinary research datasets produced at the University of Bristol. Data published through the repository are all openly available under a Non-Commercial Government License for public sector information, and each deposit is assigned a unique Digital Object Identifier (DOI).",
+        "title": "data.bris Research Data Repository",
+        "url": "http://data.bris.ac.uk/data",
+        "facets": [
+            {
+                "value": "Europe",
+                "key": "Region"
+            },
+            {
+                "value": "Academic",
+                "key": "Type"
+            }
+        ],
+        "location": "Bristol, United Kingdom",
+        "id": "data_bris_ac_uk_data"
+    },
+    {
+        "description": "The Joint Research Centre (JRC) of the European Commission is coordinating an initiative aiming to provide scientific support to the European Union Strategy for the Danube Region (EUSDR) focusing on four vertical priorities: environment protection, irrigation and agricultural development, navigability and energy production. As a transversal priority, the initiative also aims to support the development of Smart Specialisation strategies for innovation in the Danube Region.\n\nThe initiative was launched in close cooperation with key scientific partners of the Danube Region. Through an integrated approach relying on different flagship clusters, the JRC and its scientific partners will gather essential scientific expertise and data to help decision-makers and other stakeholders of the Danube Region to identify the policy measures and actions needed for the implementation of the EU Strategy of the Danube Region.",
+        "title": "Danube Reference Data and Service Infrastructure",
+        "url": "http://drdsi.jrc.ec.europa.eu",
+        "facets": [
+            {
+                "value": "Europe",
+                "key": "Region"
+            },
+            {
+                "value": "Community",
+                "key": "Type"
+            }
+        ],
+        "location": "EU",
+        "id": "drdsi_jrc_ec_europa_eu"
+    },
+    {
+        "description": "Open data initiative and platform for Wollongong and the greater Illawarra region in Australia (about an hour south of Sydney)",
+        "title": "Gong.io",
+        "url": "http://gong.io",
+        "facets": [
+            {
+                "value": "Australasia",
+                "key": "Region"
+            },
+            {
+                "value": "Community",
+                "key": "Type"
+            }
+        ],
+        "location": "Wollongong, Australia",
+        "id": "gong_io"
+    },
+    {
+        "description": "OpenDataReno is a place to exchange data and information useful to the residents of the greater Reno/Sparks/Washoe County area.",
+        "title": "OpenDataReno",
+        "url": "http://opendatareno.org",
+        "facets": [
+            {
+                "value": "North America",
+                "key": "Region"
+            },
+            {
+                "value": "Community",
+                "key": "Type"
+            }
+        ],
+        "location": "Reno, NV, USA",
+        "id": "opendatareno_org"
+    },
+    {
+        "description": "Ireland's national open data portal was launched in July 2014. It is operated by the Department of Public Expenditure and Reform.",
+        "title": "data.gov.ie",
+        "url": "http://data.gov.ie",
+        "facets": [
+            {
+                "value": "Europe",
+                "key": "Region"
+            },
+            {
+                "value": "National Government",
+                "key": "Type"
+            }
+        ],
+        "location": "Ireland",
+        "id": "data_gov_ie"
+    },
+    {
+        "description": "http://data.tainan.gov.tw is the first running open data platform in Taiwan to have implemented CKAN.",
+        "title": "Taipei City Open Data",
+        "url": "http://data.tainan.gov.tw",
+        "facets": [
+            {
+                "value": "Asia",
+                "key": "Region"
+            },
+            {
+                "value": "Local / Regional Government",
+                "key": "Type"
+            }
+        ],
+        "location": "Tainan, Taiwan",
+        "id": "data_tainan_gov_tw"
+    }
+]

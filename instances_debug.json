@@ -1,0 +1,74 @@
+[
+    {
+        "description": "The Brazilian national portal at http://dados.gov.br/ was built using a highly participative process, with planning and development meetings open to all interested citizens. It used CKAN in line with government policy to use free and open-source software where possible.",
+        "title": "dados.gov.br",
+        "url": "http://dados.gov.br",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "National Government"
+            }
+        ],
+        "location": "Brazil",
+        "id": "dados_gov_br"
+    },
+    {
+        "description": "Datamx.io is the Open Data Civic Platform in Mexico, it aims to create an ecosystem where government, non-profits, journalists and civic hackers can get together to create civic innovation. ",
+        "title": "datamx.io",
+        "url": "http://datamx.io",
+        "facets": [
+            {
+                "key": "Type",
+                "value": "Community"
+            },
+            {
+                "key": "Region",
+                "value": "North America"
+            }
+        ],
+        "location": "Mexico",
+        "id": "datamx_io"
+    },
+    {
+        "description": "Open data portal for the municipality of Recife, Brazil.",
+        "title": "Dados Recife",
+        "url": "http://dados.recife.pe.gov.br/",
+        "facets": [
+            {
+                "key": "Region",
+                "value": "South America"
+            },
+            {
+                "key": "Type",
+                "value": "Local / Regional Government"
+            }
+        ],
+        "location": "Recife, Brazil",
+        "id": "dados_recife_pe_gov_br"
+    },
+    {
+        "description": "The Open Africa Platform initiative aims to be largest repository of Data on the African continent - a Library of Congress of Data for African for use by citizens, media, activists, governments and civil society. It is part of the Ujuzi Initiative which is created and funded by the Africa Media Initiative (AMI), the World Bank Institute (WBI) and Google.",
+        "title": "Africa Open Data",
+        "url": "http://africaopendata.org/",
+        "facets": [
+            {
+                "key": "Featured",
+                "value": "Featured"
+            },
+            {
+                "key": "Region",
+                "value": "Africa"
+            },
+            {
+                "key": "Type",
+                "value": "Community"
+            }
+        ],
+        "location": "Africa",
+        "id": "africaopendata_org"
+    }
+]
