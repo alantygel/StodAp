@@ -147,20 +147,23 @@ def CalculateStats():
 
 	print 'Number of portals: ' + str(len(ODP))
 
-	x = 0; y = 0; z = 0;
+	x = 0; y = 0; z = 0; ld = 0;
 	for o in ODP:
 		x = x + o.num_of_tags
 		y = y + o.num_of_packages
 		z = z + len(o.tagging)	
+		ld = ld + len(o.datasets)
 
 	print 'Number of tags: ' , str(x)
-	print 'Number of packages: ' , str(y)
-	print 'Number of taggings: ' , str(z)
+	print 'Number of datasets: ' , str(y)
+
 
 	all_tags, unique_tags = CalculateUniqueTags()
 
+	print 'Number of loaded taggings: ' , str(z)
 	print 'Number of loaded tags: ' , str(len(all_tags))
-	print 'Number of unique tags: ' , str(len(unique_tags))
+	print 'Number of loaded datasets: ' , str(ld)
+	print 'Number of loaded unique tags: ' , str(len(unique_tags))
 
 def CalculateUniqueTags():
 	with open(config.objects_file, 'rb') as input:
