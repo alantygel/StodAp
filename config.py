@@ -15,4 +15,5 @@ wiki_out_file = 'wiki_portal.txt'
 
 global instances_file
 #instances_file = 'instances.json'
-instances_file = 'instances_debug.json'
+#instances_file = 'instances_debug.json'
+instances_file = 'instances_test.json'

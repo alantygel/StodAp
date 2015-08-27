@@ -6,7 +6,7 @@ functions.LoadODPs()
 functions.LoadODPData()
 functions.WriteWikiPages()
 functions.CalculateStats()
-functions.TagsOverN(2)
+#functions.TagsOverN(2)
 
 #with open(config.objects_file, 'rb') as input:
 #	ODP =  pickle.load(input)
