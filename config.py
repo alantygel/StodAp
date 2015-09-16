@@ -8,12 +8,12 @@ global DEBUG
 DEBUG = True
 
 global objects_file
-objects_file = 'ODP2.pkl'
+objects_file = 'ODP3.pkl'
 
 global wiki_out_file
 wiki_out_file = 'wiki_portal.txt'
 
 global instances_file
 #instances_file = 'instances.json'
-#instances_file = 'instances_debug.json'
-instances_file = 'instances_test.json'
+instances_file = 'instances_debug.json'
+#instances_file = 'instances_test.json'

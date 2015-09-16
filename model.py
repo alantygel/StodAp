@@ -113,17 +113,20 @@ class Tag:
 
 	def set_meaning(self):
 
-		req = urllib2.Request('http://spotlight.dbpedia.org/rest/annotate?text=' + urllib.quote(self.name.encode('utf-8')), headers = {'Accept' : 'application/json'})	
-		contents = json.loads(urllib2.urlopen(req).read())
-		self.meanings = []
+		try:
+			req = urllib2.Request('http://spotlight.dbpedia.org/rest/annotate?text=' + urllib.quote(self.name.encode('utf-8')), headers = {'Accept' : 'application/json'})	
+			contents = json.loads(urllib2.urlopen(req).read())
+			self.meanings = []
 
-		if len(contents) == 7:
-#			if isinstance(contents['annotation']['surfaceForm'], list):
-			for m in contents['Resources']:
-					self.meanings.append(m['@URI'])
-			#else:
-			#	print "here"
-			#	self.meanings.append('http://dbpedia.org/page/' + contents['annotation']['surfaceForm']['resource']['@uri'].encode('utf-8'))
+			if len(contents) == 7:
+	#			if isinstance(contents['annotation']['surfaceForm'], list):
+				for m in contents['Resources']:
+						self.meanings.append(m['@URI'])
+				#else:
+				#	print "here"
+				#	self.meanings.append('http://dbpedia.org/page/' + contents['annotation']['surfaceForm']['resource']['@uri'].encode('utf-8'))
+		except:
+			1 == 1
 
 class Tagging:
 	def __init__(self, tag, dataset):

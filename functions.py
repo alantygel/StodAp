@@ -68,74 +68,114 @@ def WriteWikiPages():
 	pages_ODP = open(config.wiki_out_file, 'wb')
 
 	for o in ODP:
-		# write portal page
-		pages_ODP.write('Portal:' + o.name.encode('utf-8') + '\n\n')
-		pages_ODP.write('--ENDTITLE--\n\n')
+#		# write portal page
+#		pages_ODP.write('Portal:' + o.name.encode('utf-8') + '\n\n')
+#		pages_ODP.write('--ENDTITLE--\n\n')
 
-		pages_ODP.write('Type: [[rdf:Type :: tagont:ServiceDomain]]			\n\n')
- 		pages_ODP.write('== Taggings == \n\n')
+#		pages_ODP.write('Type: [[rdf:Type :: tagont:ServiceDomain]]			\n\n')
 
-		pages_ODP.write('{{#ask: 											\n\n')
-		pages_ODP.write('  [[rdf:type :: tags:RestrictedTagging]]				\n\n')
-		pages_ODP.write('  [[tagont:hasServiceDomain :: Portal:' + o.name.encode('utf-8') + ']]		\n\n')
-		pages_ODP.write('  |?tags:associatedTag								\n\n')
-		pages_ODP.write('}}													\n\n')
-		pages_ODP.write('--ENDPAGE--\n\n')
+# 		pages_ODP.write('== Tags == \n\n')
+#		for t in o.tags:
+#			pages_ODP.write('* [[Tag:' + t.name.encode('utf-8') + ']]\n')
 
-		# write tagging pages
-		for t in o.tagging:
-			tag_name = [tag.name for tag in o.tags if tag.tag_id == t.tag_id]
-			dataset_name = [dataset.name for dataset in o.datasets if dataset.dataset_id == t.dataset_id]
+# 		pages_ODP.write('== Datasets == \n\n')
+#		for d in o.datasets:
+#			pages_ODP.write('* [[Dataset:' + d.name.encode('utf-8') + ']]\n')
 
-			pages_ODP.write('Tagging:' + t.tag_id + '-' + t.dataset_id + '\n\n')
-			pages_ODP.write('--ENDTITLE--\n\n\n')
-			pages_ODP.write('Type: [[rdf:type :: tags:RestrictedTagging]]	\n\n')
-			pages_ODP.write('Tagged Resource: [[tags:taggedResource :: Dataset:' + dataset_name[0].encode('utf-8') + ']]	\n\n')
-			pages_ODP.write('Tagged Domain: [[tagont:hasServiceDomain :: Portal:' + o.name + ']]		\n\n')
-			#pages_ODP.write('Meaning: {{#set: moat:tagMeaning=http://sws.geonames.org/3408096/}} [http://sws.geonames.org/3408096/ http://sws.geonames.org/3408096/]
-			pages_ODP.write('Tag: [[tags:associatedTag :: Tag:' + tag_name[0].encode('utf-8') + ']]	\n\n')
-			pages_ODP.write('--ENDPAGE--\n\n\n')
+## 		pages_ODP.write('== Taggings == \n\n')
+##		for t in o.tagging:
+##			pages_ODP.write('* [[stodap:isServiceDomain :: Tagging:' + t.tag_id + '-' + t.dataset_id + ']]\n\n')
+#			
+##		pages_ODP.write('{{#ask: 											\n\n')
+##		pages_ODP.write('  [[rdf:type :: tags:RestrictedTagging]]				\n\n')
+##		pages_ODP.write('  [[tagont:hasServiceDomain :: Portal:' + o.name.encode('utf-8') + ']]		\n\n')
+##		pages_ODP.write('  |?tags:associatedTag								\n\n')
+##		pages_ODP.write('}}													\n\n')
+#		pages_ODP.write('--ENDPAGE--\n\n')
+
+#		# write tagging pages
+#		for t in o.tagging:
+#			tag_name = [tag.name for tag in o.tags if tag.tag_id == t.tag_id]
+#			dataset_name = [dataset.name for dataset in o.datasets if dataset.dataset_id == t.dataset_id]
+
+#			pages_ODP.write('Tagging:' + t.tag_id + '-' + t.dataset_id + '\n\n')
+#			pages_ODP.write('--ENDTITLE--\n\n\n')
+#			pages_ODP.write('Type: [[rdf:type :: tags:RestrictedTagging]]	\n\n')
+#			pages_ODP.write('Tagged Resource: [[tags:taggedResource :: Dataset:' + dataset_name[0].encode('utf-8') + ']]	\n\n')
+#			pages_ODP.write('Tagged Domain: [[tagont:hasServiceDomain :: Portal:' + o.name + ']]		\n\n')
+#			#pages_ODP.write('Meaning: {{#set: moat:tagMeaning=http://sws.geonames.org/3408096/}} [http://sws.geonames.org/3408096/ http://sws.geonames.org/3408096/]
+#			pages_ODP.write('Tag: [[tags:associatedTag :: Tag:' + tag_name[0].encode('utf-8') + ']]	\n\n')
+#			pages_ODP.write('--ENDPAGE--\n\n\n')
 
 		# write dataset pages
-		for d in o.datasets:
-			pages_ODP.write('Dataset:' + d.name.encode('utf-8') + '\n\n')
-			pages_ODP.write('--ENDTITLE--\n\n\n')
-			pages_ODP.write('Type: [[rdf:type :: StodAp:Dataset]]	\n\n')
+#		for d in o.datasets:
+#			pages_ODP.write('Dataset:' + d.name.encode('utf-8') + '\n\n')
+#			pages_ODP.write('--ENDTITLE--\n\n\n')
+#			pages_ODP.write('Type: [[rdf:type :: StodAp:Dataset]]	\n\n')
 
-	 		pages_ODP.write('== Tags == \n\n')
-			pages_ODP.write('{{#ask: 											\n\n')
-			pages_ODP.write('  [[rdf:type :: tags:RestrictedTagging]]				\n\n')
-			pages_ODP.write('  [[tagont:taggedResource :: Dataset:' + d.name.encode('utf-8') + ']]		\n\n')
-			pages_ODP.write('  |?tags:associatedTag=Tag								\n\n')
-			pages_ODP.write('}}													\n\n')
+##	 		pages_ODP.write('== Tags == \n\n')
+##			pages_ODP.write('{{#ask: 											\n\n')
+##			pages_ODP.write('  [[rdf:type :: tags:RestrictedTagging]]				\n\n')
+##			pages_ODP.write('  [[tagont:taggedResource :: Dataset:' + d.name.encode('utf-8') + ']]		\n\n')
+##			pages_ODP.write('  |?tags:associatedTag=Tag								\n\n')
+##			pages_ODP.write('}}													\n\n')
 
-			pages_ODP.write('== Related Datasets == \n\n')
-			#TODO all datasets with the same tags
+#			pages_ODP.write('== Tags == \n\n')
+#			assoc_taggings = [tagging for tagging in o.tagging if tagging.dataset_id == d.dataset_id]
+#			for t in assoc_taggings:
+#				tag_name = [tag.name for tag in o.tags if tag.tag_id == t.tag_id]
+#				pages_ODP.write('* [[Tag:' + tag_name[0].encode('utf-8') + ']]	\n\n')
 
-			pages_ODP.write('--ENDPAGE--\n\n\n')
+
+#			pages_ODP.write('== Taggings == \n\n')
+#			for t in assoc_taggings:
+#				pages_ODP.write('* [[ stodap:isTaggedResource :: Tagging:' + t.tag_id + '-' + t.dataset_id + ']]\n\n')
+
+#			pages_ODP.write('== Related Datasets == \n\n')
+#			#TODO all datasets with the same tags
+
+#			pages_ODP.write('--ENDPAGE--\n\n\n')
+
 		# write tags pages
 		for t in o.tags:
 			pages_ODP.write('Tag:' + t.name.encode('utf-8') + '\n\n')
 			pages_ODP.write('--ENDTITLE--\n\n')
 			pages_ODP.write('Type: [[rdf:type::tags:Tag]]	\n\n')
 
+			pages_ODP.write('== Datasets == \n\n')
+			assoc_taggings = [tagging for tagging in o.tagging if tagging.tag_id == t.tag_id]
+			for d in assoc_taggings:
+				dataset_name = [dataset.name for dataset in o.datasets if dataset.dataset_id == d.dataset_id]
+				pages_ODP.write('* [[Dataset:' + dataset_name[0].encode('utf-8') + ']]	\n\n')
+
+			pages_ODP.write('== Taggings == \n\n')
+			for a in assoc_taggings:
+				pages_ODP.write('* [[stodap:isAssociatedTag :: Tagging:' + a.tag_id + '-' + a.dataset_id + ']]\n\n')
+
+			pages_ODP.write('== Related Datasets == \n\n')
+			#TODO all datasets with the same tags
+
+
 			pages_ODP.write('== Meanings == \n\n')
-
-			pages_ODP.write('{{#ask: \n\n')
-			pages_ODP.write('  [[rdf:type :: tags:RestrictedTagging]]\n\n')
-			pages_ODP.write('  [[tags:associatedTag :: Tag:' + t.name.encode('utf-8') + ']]\n\n')
-			pages_ODP.write('  |?moat:tagMeaning\n\n')
-			pages_ODP.write('}}\n\n')
+			for m in t.meanings:
+				pages_ODP.write('* [[muto:tagMeaning :: ' + m + ']]\n\n')
 
 
-			pages_ODP.write('== Datasets and Portals == \n\n')
+#			pages_ODP.write('{{#ask: \n\n')
+#			pages_ODP.write('  [[rdf:type :: tags:RestrictedTagging]]\n\n')
+#			pages_ODP.write('  [[tags:associatedTag :: Tag:' + t.name.encode('utf-8') + ']]\n\n')
+#			pages_ODP.write('  |?moat:tagMeaning\n\n')
+#			pages_ODP.write('}}\n\n')
 
-			pages_ODP.write('{{#ask: \n\n')
-			pages_ODP.write('  [[rdf:type::tags:RestrictedTagging]]\n\n')
-			pages_ODP.write('  [[tags:associatedTag :: Tag:' + t.name.encode('utf-8') + ']]\n\n')
-			pages_ODP.write('  |?tags:taggedResource \n\n')
-			pages_ODP.write('  |?tagont:hasServiceDomain\n\n')
-			pages_ODP.write('}} \n\n')
+
+#			pages_ODP.write('== Datasets and Portals == \n\n')
+
+#			pages_ODP.write('{{#ask: \n\n')
+#			pages_ODP.write('  [[rdf:type::tags:RestrictedTagging]]\n\n')
+#			pages_ODP.write('  [[tags:associatedTag :: Tag:' + t.name.encode('utf-8') + ']]\n\n')
+#			pages_ODP.write('  |?tags:taggedResource \n\n')
+#			pages_ODP.write('  |?tagont:hasServiceDomain\n\n')
+#			pages_ODP.write('}} \n\n')
 			pages_ODP.write('--ENDPAGE--\n\n')
 
 
