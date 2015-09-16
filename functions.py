@@ -23,12 +23,12 @@ def LoadODPs():
 	for i in instances:
 		if 'url-api' in i:
 			url = i['url-api']
-		else
+		else:
 			url = i['url']
 
 		try: 
-			response = urllib2.urlopen(i['url'] + '/api/3/action/tag_list')
-			response_pkg = urllib2.urlopen(i['url'] + '/api/3/action/package_list')
+			response = urllib2.urlopen(url + '/api/3/action/tag_list')
+			response_pkg = urllib2.urlopen(url + '/api/3/action/package_list')
 		except:
 			print "Could not connect"
 			response = 0
@@ -40,14 +40,14 @@ def LoadODPs():
 				response_dict_pkg = json.loads(response_pkg.read())	
 				packages = response_dict_pkg['result']
 
-				ODP.append(model.OpenDataPortal(i['url'], i['title'], len(result), len(packages)))
+				ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
 				#print i['title'] + ';' + i['url'] + ';' + str(len(result)) + ';' + str(len(packages))
 
 			except:
-				print i['title'] + ';' + i['url'] + ';' + 'No API 1'	
+				print i['title'] + ';' + url + ';' + 'No API 1'	
 			
 		else:
-			print i['title'] + ';' + i['url'] + ';' + 'No API 2'
+			print i['title'] + ';' + url + ';' + 'No API 2'
 	
 
 	with open(config.objects_file, 'wb') as output:
