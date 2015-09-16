@@ -3,6 +3,7 @@
         "description": "Austria\u2019s national data portal Offene Daten \u00d6sterreich contains both government data and data harvested from a number of city portals, including the CKAN portals at Linz and Graz.",
         "title": "data.gv.at",
         "url": "http://data.gv.at",
+        "url-api": "http://data.gv.at/katalog",
         "facets": [
             {
                 "value": "Europe",
@@ -143,6 +144,7 @@
         "description": "The US government announced in January 2013 that they were moving to CKAN for their open data catalogue, combining datasets previously published in different places. The relaunch went live in May 2013.",
         "title": "Data.gov",
         "url": "http://data.gov",
+		"url-api": "http://catalog.data.gov",
         "facets": [
             {
                 "value": "Featured",
@@ -202,6 +204,7 @@
         "description": "data.NSW brings together a list of NSW Government datasets available in one searchable website. The NSW Government aims to make data more accessible to the public and to industry to stimulate innovative approaches to service delivery.",
         "title": "data.NSW",
         "url": "http://data.nsw.gov.au",
+        "url-api": "http://data.nsw.gov.au/data",
         "facets": [
             {
                 "value": "Australasia",
@@ -529,6 +532,7 @@
         "description": "The European Union has its own portal for releasing data held by the various bodies of the Union, including Eurostat, the European Statistics Agency.",
         "title": "EU Open Data",
         "url": "http://open-data.europa.eu/",
+        "url-api": "http://open-data.europa.eu/data",
         "facets": [
             {
                 "value": "Europe",
