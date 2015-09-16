@@ -21,6 +21,11 @@ def LoadODPs():
 		instances = json.loads(f.read())
 
 	for i in instances:
+		if 'url-api' in i:
+			url = i['url-api']
+		else
+			url = i['url']
+
 		try: 
 			response = urllib2.urlopen(i['url'] + '/api/3/action/tag_list')
 			response_pkg = urllib2.urlopen(i['url'] + '/api/3/action/package_list')
