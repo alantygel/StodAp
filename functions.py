@@ -11,6 +11,8 @@ import urllib
 import json
 import pprint
 import cPickle as pickle
+import numpy
+
 
 def LoadODPs():
 	"Reads the instance files, and initialize a list of ODP objects"
@@ -19,6 +21,8 @@ def LoadODPs():
 
 	with open(config.instances_file, 'r') as f:
 		instances = json.loads(f.read())
+
+	print 'Number of instances: ' + str(len(instances))
 
 	for i in instances:
 		if 'url-api' in i:
@@ -30,7 +34,7 @@ def LoadODPs():
 			response = urllib2.urlopen(url + '/api/3/action/tag_list')
 			response_pkg = urllib2.urlopen(url + '/api/3/action/package_list')
 		except:
-			print "Could not connect"
+			#print "Could not connect"
 			response = 0
 		if response:
 			try:		
@@ -193,11 +197,14 @@ def CalculateStats():
 	print 'Number of portals: ' + str(len(ODP))
 
 	x = 0; y = 0; z = 0; ld = 0;
+	tags_per_ds = []
 	for o in ODP:
 		x = x + o.num_of_tags
 		y = y + o.num_of_packages
 		z = z + len(o.tagging)	
 		ld = ld + len(o.datasets)
+
+		tags_per_ds.append(o.tags_per_dataset_mean())
 
 	print 'Number of tags: ' , str(x)
 	print 'Number of datasets: ' , str(y)
@@ -209,6 +216,12 @@ def CalculateStats():
 	print 'Number of loaded tags: ' , str(len(all_tags))
 	print 'Number of loaded datasets: ' , str(ld)
 	print 'Number of loaded unique tags: ' , str(len(unique_tags))
+
+	tags_per_ds = numpy.array(tags_per_ds);	
+
+	print("Tags per dataset (mean): %.2f" % tags_per_ds.mean())
+	print("Tags per dataset (max): %.0f" % tags_per_ds.max())
+	print("Tags per dataset (min): %.0f" % tags_per_ds.min())
 
 def CalculateUniqueTags():
 	with open(config.objects_file, 'rb') as input:

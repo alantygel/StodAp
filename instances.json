@@ -1812,6 +1812,7 @@
         "description": "Federated systems of data providers releasing data to support exploration for and development of geothermal resources. Academic institutions and government (state and federal) geological surveys are providing data. CKAN is used as an aggregator for metadata from nodes, and we have an installable CKAN/GeoServer stack  to make deploying new nodes as easy as we can. Metadata integration uses OGC CSW and an ISO metadata profile.",
         "title": "National Geothermal Data System",
         "url": "http://geothermaldata.org",
+        "url-api": "http://search.geothermaldata.org",
         "facets": [
             {
                 "value": "Other Organizations",
@@ -2305,6 +2306,7 @@
         "description": "Open Data Portal for Austrian non-governmental data.",
         "title": "OpenDataPortal Austria",
         "url": "https://opendataportal.at",
+		"url-api": "http://data.opendataportal.at",
         "facets": [
             {
                 "value": "Europe",
