@@ -41,7 +41,7 @@ class OpenDataPortal:
 		self.tagging.append(Tagging(tag, dataset))
 
 	def tags_per_dataset_mean (self):
-		return reduce (lambda x,y: x + y, map(lambda z: z.number_of_tags, self.datasets)) / len (self.datasets)
+		return float(reduce (lambda x,y: x + y, map(lambda z: z.number_of_tags, self.datasets))) / len (self.datasets)
 
 	def similarity_matrix (self):
 		T = len(self.tags)

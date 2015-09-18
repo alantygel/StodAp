@@ -203,7 +203,6 @@ def CalculateStats():
 		y = y + o.num_of_packages
 		z = z + len(o.tagging)	
 		ld = ld + len(o.datasets)
-
 		tags_per_ds.append(o.tags_per_dataset_mean())
 
 	print 'Number of tags: ' , str(x)
@@ -220,8 +219,8 @@ def CalculateStats():
 	tags_per_ds = numpy.array(tags_per_ds);	
 
 	print("Tags per dataset (mean): %.2f" % tags_per_ds.mean())
-	print("Tags per dataset (max): %.0f" % tags_per_ds.max())
-	print("Tags per dataset (min): %.0f" % tags_per_ds.min())
+	print("Tags per dataset (max): %.2f" % tags_per_ds.max())
+	print("Tags per dataset (min): %.2f" % tags_per_ds.min())
 
 def CalculateUniqueTags():
 	with open(config.objects_file, 'rb') as input:
