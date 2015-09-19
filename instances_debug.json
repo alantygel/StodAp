@@ -70,5 +70,22 @@
         ],
         "location": "Africa",
         "id": "africaopendata_org"
+    },
+    {
+        "description": "govdata.de is a federal data portal for Germany, which went live in February 2013. It includes data published by the federal government as well as data harvested from regional and city portals using CKAN\u2019s harvesting capabilities. It aims to increase the amount of data released under a fully open licence by 2014.",
+        "title": "GovData",
+        "url": "http://govdata.de",
+        "facets": [
+            {
+                "value": "Europe",
+                "key": "Region"
+            },
+            {
+                "value": "National Government",
+                "key": "Type"
+            }
+        ],
+        "location": "Germany",
+        "id": "govdata_de"
     }
 ]

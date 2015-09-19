@@ -10,6 +10,7 @@ import json
 import pprint
 import cPickle as pickle
 import Levenshtein
+import lib
 
 class OpenDataPortal:
 	def __init__(self, url, name, num_of_tags, num_of_packages):
@@ -69,7 +70,7 @@ class OpenDataPortal:
 
 		#get tags
 		try:		
-			tag_list_response = urllib2.urlopen(self.url + '/api/3/action/tag_list?all_fields=True')
+			tag_list_response = lib.urlopen_with_retry(self.url + '/api/3/action/tag_list?all_fields=True')
 		except:
 			1 == 1
 		if tag_list_response: 
@@ -83,7 +84,7 @@ class OpenDataPortal:
 
 		#get datasets
 		try:		
-			dataset_list_response = urllib2.urlopen(self.url + '/api/3/action/package_list')
+			dataset_list_response = lib.urlopen_with_retry(self.url + '/api/3/action/package_list')
 		except:
 			1 == 1
 
@@ -96,7 +97,7 @@ class OpenDataPortal:
 			for dataset in dataset_list:
 				dataset_response = 0
 				try:		
-					dataset_response = urllib2.urlopen(self.url + '/api/3/action/package_search?fq=name:"' + urllib2.quote(dataset.encode('UTF-8')) + '"')
+					dataset_response = lib.urlopen_with_retry(self.url + '/api/3/action/package_search?fq=name:"' + urllib2.quote(dataset.encode('UTF-8')) + '"')
 				except:
 					1 == 1
 				if dataset_response: 
@@ -138,7 +139,7 @@ class Tag:
 		try:
 			self.meanings = []
 			req = urllib2.Request('http://spotlight.dbpedia.org/rest/annotate?text=' + urllib.quote(self.name.encode('utf-8')), headers = {'Accept' : 'application/json'})	
-			contents = json.loads(urllib2.urlopen(req).read())
+			contents = json.loads(lib.urlopen_with_retry(req).read())
 
 			if len(contents) == 7:
 	#			if isinstance(contents['annotation']['surfaceForm'], list):

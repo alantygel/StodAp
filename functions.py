@@ -12,6 +12,7 @@ import json
 import pprint
 import cPickle as pickle
 import numpy
+import lib
 
 
 def LoadODPs():
@@ -31,8 +32,8 @@ def LoadODPs():
 			url = i['url']
 
 		try: 
-			response = urllib2.urlopen(url + '/api/3/action/tag_list')
-			response_pkg = urllib2.urlopen(url + '/api/3/action/package_list')
+			response = lib.urlopen_with_retry(url + '/api/3/action/tag_list')
+			response_pkg = lib.urlopen_with_retry(url + '/api/3/action/package_list')
 		except:
 			#print "Could not connect"
 			response = 0

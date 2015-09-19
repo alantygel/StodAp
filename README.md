@@ -15,4 +15,6 @@ The CKAN Extension makes the connection between an Open Data Portal and the tag 
 
 ![StodAp Client Server Architecture](clientserver.jpg "StodAp Client Server Architecture")
 
-
+## Dependencies
+pip install python-Levenshtein
+pip install numpy
