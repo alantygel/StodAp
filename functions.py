@@ -198,6 +198,7 @@ def CalculateStats():
 
 	x = 0; y = 0; z = 0; ld = 0;
 	tags_per_ds = []
+	tags_with_meaning = []
 	for o in ODP:
 		x = x + o.num_of_tags
 		y = y + o.num_of_packages
@@ -205,10 +206,10 @@ def CalculateStats():
 		ld = ld + len(o.datasets)
 
 		tags_per_ds.append(o.tags_per_dataset_mean())
+		tags_with_meaning.append(o.tags_with_meaning())
 
 	print 'Number of tags: ' , str(x)
 	print 'Number of datasets: ' , str(y)
-
 
 	all_tags, unique_tags = CalculateUniqueTags()
 
@@ -217,11 +218,18 @@ def CalculateStats():
 	print 'Number of loaded datasets: ' , str(ld)
 	print 'Number of loaded unique tags: ' , str(len(unique_tags))
 
-	tags_per_ds = numpy.array(tags_per_ds);	
+	tags_per_ds = numpy.array(tags_per_ds);
+	tags_with_meaning = numpy.array(tags_with_meaning);		
 
+	print "------"
 	print("Tags per dataset (mean): %.2f" % tags_per_ds.mean())
 	print("Tags per dataset (max): %.0f" % tags_per_ds.max())
 	print("Tags per dataset (min): %.0f" % tags_per_ds.min())
+	print "------"
+	print("Tags with meaning (mean): %.2f" % tags_with_meaning.mean())
+	print("Tags with meaning (max): %.0f" % tags_with_meaning.max())
+	print("Tags with meaning (min): %.0f" % tags_with_meaning.min())
+
 
 def CalculateUniqueTags():
 	with open(config.objects_file, 'rb') as input:

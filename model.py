@@ -43,6 +43,13 @@ class OpenDataPortal:
 	def tags_per_dataset_mean (self):
 		return reduce (lambda x,y: x + y, map(lambda z: z.number_of_tags, self.datasets)) / len (self.datasets)
 
+	def tags_with_meaning (self):
+		res = 0
+		for t in self.tags:
+			if t.meanings != []
+				res += 1
+		return res
+
 	def similarity_matrix (self):
 		T = len(self.tags)
 		matrix = [[0 for x in range(T)] for x in range(T)]
