@@ -46,9 +46,12 @@ class OpenDataPortal:
 	def tags_with_meaning (self):
 		res = 0
 		for t in self.tags:
-			if t.meanings != []
-				res += 1
-		return res
+			if hasattr(t, 'meanings'):
+				if t.meanings != []:
+					res += 1
+			else:
+				print "no meaning"
+		return res/float(len(self.tags))
 
 	def similarity_matrix (self):
 		T = len(self.tags)
@@ -133,9 +136,9 @@ class Tag:
 	def set_meaning(self):
 
 		try:
+			self.meanings = []
 			req = urllib2.Request('http://spotlight.dbpedia.org/rest/annotate?text=' + urllib.quote(self.name.encode('utf-8')), headers = {'Accept' : 'application/json'})	
 			contents = json.loads(urllib2.urlopen(req).read())
-			self.meanings = []
 
 			if len(contents) == 7:
 	#			if isinstance(contents['annotation']['surfaceForm'], list):

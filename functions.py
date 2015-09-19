@@ -226,8 +226,8 @@ def CalculateStats():
 	print("Tags per dataset (min): %.2f" % tags_per_ds.min())
 	print "------"
 	print("Tags with meaning (mean): %.2f" % tags_with_meaning.mean())
-	print("Tags with meaning (max): %.0f" % tags_with_meaning.max())
-	print("Tags with meaning (min): %.0f" % tags_with_meaning.min())
+	print("Tags with meaning (max): %.2f" % tags_with_meaning.max())
+	print("Tags with meaning (min): %.2f" % tags_with_meaning.min())
 
 def CalculateUniqueTags():
 	with open(config.objects_file, 'rb') as input:
