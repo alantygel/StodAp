@@ -65,9 +65,13 @@ def LoadODPData():
 		 ODP =  pickle.load(input)
 
 	for o in ODP:
-		o.load_data()
-		with open(config.objects_file, 'wb') as output:
-			pickle.dump(ODP, output, -1)
+		if len(o.tags) == 0:
+			print "process" + o.url
+			o.load_data()
+			with open(config.objects_file, 'wb') as output:
+				pickle.dump(ODP, output, -1)
+		else:
+			print o.url + "already processed"
 		
 def WriteWikiPages():
 	"write wiki pages - Tagging, Tag, Portal and Dataset"
@@ -207,6 +211,12 @@ def CalculateStats():
 		ld = ld + len(o.datasets)
 		tags_per_ds.append(o.tags_per_dataset_mean())
 		tags_with_meaning.append(o.tags_with_meaning())
+		if o.num_of_tags != len(o.tags):
+			print "Diff: " + o.url + ": " + str(o.num_of_tags) + " - " + str(len(o.tags))
+		else:
+			print "Igua: " + o.url
+
+
 
 	print 'Number of tags: ' , str(x)
 	print 'Number of datasets: ' , str(y)
@@ -277,5 +287,19 @@ def TagsOverN(N):
 	mfile.close()
 	tags_over_n_perc = sorted (tags_over_n_perc)
 	return tags_over_n_perc	
+
+def WriteCSV():
+
+	with open(config.objects_file, 'rb') as input:
+                ODP =  pickle.load(input)
+
+
+	csv_file = open(config.objects_file + '.csv', 'w')
+        csv_file.write("Name ; URL ; Number of Tags ; Number of Packages; Tags per dataset (mean) ; Tags with meaning\n")
+		
+	for o in ODP:
+		csv_file.write(o.name.encode('utf-8') + ";"+ o.url.encode('utf-8') + ";" + str(o.num_of_tags).encode('utf-8') + ";" + str(o.num_of_packages).encode('utf-8') + ";" + str(o.tags_per_dataset_mean()).encode('utf-8') + ";" + str(o.tags_with_meaning()).encode('utf-8') + "\n")
+	
+	csv_file.close()	
 
 

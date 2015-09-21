@@ -42,7 +42,11 @@ class OpenDataPortal:
 		self.tagging.append(Tagging(tag, dataset))
 
 	def tags_per_dataset_mean (self):
-		return float(reduce (lambda x,y: x + y, map(lambda z: z.number_of_tags, self.datasets))) / len (self.datasets)
+		if  len(self.datasets) > 0:
+			ret = float(reduce (lambda x,y: x + y, map(lambda z: z.number_of_tags, self.datasets))) / len (self.datasets)
+		else:
+			ret = 0
+		return ret
 
 	def tags_with_meaning (self):
 		res = 0
@@ -52,7 +56,11 @@ class OpenDataPortal:
 					res += 1
 			else:
 				print "no meaning"
-		return res/float(len(self.tags))
+		if len(self.tags) > 0:
+			ret = res/float(len(self.tags))
+		else:
+			ret = 0
+		return ret
 
 	def similarity_matrix (self):
 		T = len(self.tags)
