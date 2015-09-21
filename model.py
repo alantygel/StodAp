@@ -68,7 +68,7 @@ class OpenDataPortal:
 		for t in range(0,T-1):
 		    for s in range(t,T-1):
 		        if s != t:
-		            matrix[s][t] = Levenshtein.ratio(self.tags[t].name,self.tags[s].name)
+		            matrix[s][t] = Levenshtein.distance(self.tags[t].name,self.tags[s].name)
 		return matrix
 
 
