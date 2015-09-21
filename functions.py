@@ -302,4 +302,65 @@ def WriteCSV():
 	
 	csv_file.close()	
 
+def TagsDistribution():
 
+	mfile = open('tags_distibution.m', 'w')
+
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	k = 0;
+	for o in ODP:
+		if len(o.tags) > 0:
+			k += 1
+			mfile.write('tags_distibution{' + str(k) +  '} = [\n')
+			for t in o.tags:
+				mfile.write(str(t.count) + '\n')
+			mfile.write('];\n')
+
+	mfile.close()
+
+def TagsPerDataset():
+
+	mfile = open('tags_perdataset.m', 'w')
+
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	k = 0;
+	for o in ODP:
+		if len(o.datasets) > 0:
+			k += 1
+			mfile.write('tags_per_dataset{' + str(k) +  '} = [\n')
+			for d in o.datasets:
+				mfile.write(str(d.number_of_tags) + '\n')
+			mfile.write('];\n')
+
+	mfile.close()
+def Similarity():
+
+	mfile = open('similarity.m', 'w')
+
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	k = 0
+	for o in ODP:
+		m = o.similarity_matrix()
+		k +=1
+		s = 0
+		mfile.write('similarity{' + str(k) +  '} = [\n')	
+		for i in range(0,len(o.tags)):
+			for j in range(0,len(o.tags)):
+				if m[i][j] == 1:
+					s += 1
+		
+		mfile.write(str(s) +  '] \n')	
+				
+
+#		for i in range(0,len(o.tags)):
+#			for j in range(0,len(o.tags)):
+#				mfile.write(str(m[i][j]) + ' ')	
+#			mfile.write('\n')	
+#		mfile.write('];\n')
+	mfile.close()
