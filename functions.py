@@ -295,7 +295,7 @@ def WriteCSV():
 
 
 	csv_file = open(config.objects_file + '.csv', 'w')
-        csv_file.write("Name ; URL ; Number of Tags ; Number of Packages; Tags per dataset (mean) ; Tags with meaning\n")
+        csv_file.write("Name ; URL ; Number of Tags ; Number of Packages; Tags per dataset (mean) ; % of tags with associated URI\n")
 		
 	for o in ODP:
 		csv_file.write(o.name.encode('utf-8') + ";"+ o.url.encode('utf-8') + ";" + str(o.num_of_tags).encode('utf-8') + ";" + str(o.num_of_packages).encode('utf-8') + ";" + str(o.tags_per_dataset_mean()).encode('utf-8') + ";" + str(o.tags_with_meaning()).encode('utf-8') + "\n")
