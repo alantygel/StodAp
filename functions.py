@@ -13,6 +13,7 @@ import pprint
 import cPickle as pickle
 import numpy
 import lib
+from unidecode import unidecode
 
 
 def LoadODPs():
@@ -204,22 +205,28 @@ def CalculateStats():
 	x = 0; y = 0; z = 0; ld = 0;
 	tags_per_ds = []
 	tags_with_meaning = []
+	tags = []
+	datasets = []
 	for o in ODP:
-		x = x + o.num_of_tags
-		y = y + o.num_of_packages
-		z = z + len(o.tagging)	
-		ld = ld + len(o.datasets)
-		tags_per_ds.append(o.tags_per_dataset_mean())
-		tags_with_meaning.append(o.tags_with_meaning())
-		if o.num_of_tags != len(o.tags):
-			print "Diff: " + o.url + ": " + str(o.num_of_tags) + " - " + str(len(o.tags))
-		else:
-			print "Igua: " + o.url
+		if o.num_of_tags == len(o.tags):
+			x = x + o.num_of_tags
+			y = y + o.num_of_packages
+			z = z + len(o.tagging)	
+			ld = ld + len(o.datasets)
+			tags_per_ds.append(o.tags_per_dataset_mean())
+			tags_with_meaning.append(o.tags_with_meaning())
+			tags.append(o.num_of_tags)
+			datasets.append(o.num_of_packages)
+#		else:
+#			print "Diff: " + o.url + ": " + str(o.num_of_tags) + " - " + str(len(o.tags))
 
-
+	tags = numpy.array(tags);
+	datasets = numpy.array(datasets);
 
 	print 'Number of tags: ' , str(x)
+	print 'Average tag number: ' + str(tags.mean()) + '+/-' + str(tags.std())
 	print 'Number of datasets: ' , str(y)
+	print 'Average dataset number: ' + str(datasets.mean()) + '+/-' + str(datasets.std())
 
 	all_tags, unique_tags = CalculateUniqueTags()
 
@@ -232,7 +239,7 @@ def CalculateStats():
 	tags_with_meaning = numpy.array(tags_with_meaning);		
 
 	print "------"
-	print("Tags per dataset (mean): %.2f" % tags_per_ds.mean())
+	print("Tags per dataset (average): %.2f" % tags_per_ds.mean())
 	print("Tags per dataset (max): %.2f" % tags_per_ds.max())
 	print("Tags per dataset (min): %.2f" % tags_per_ds.min())
 	print "------"
@@ -347,6 +354,7 @@ def Similarity():
 	k = 0
 	for o in ODP:
 		m = o.similarity_matrix()
+		return
 		k +=1
 		s = 0
 		mfile.write('similarity{' + str(k) +  '} = [\n')	
@@ -357,6 +365,34 @@ def Similarity():
 		
 		mfile.write(str(s) +  '] \n')	
 				
+
+#		for i in range(0,len(o.tags)):
+#			for j in range(0,len(o.tags)):
+#				mfile.write(str(m[i][j]) + ' ')	
+#			mfile.write('\n')	
+#		mfile.write('];\n')
+	mfile.close()
+
+def Similarity2():
+
+	mfile = open('similarity.m', 'w')
+
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+
+	mfile.write('similarity = [\n')	
+	for o in ODP:
+		s = 0
+		srtd = sorted(map(lambda z: z.name.encode('utf-8'), o.tags),key=str.lower)
+		for i in range(1,len(o.tags)):
+			if unidecode(srtd[i].lower()) == unidecode(srtd[i-1].lower()):
+						#print o.tags[i].name.encode('utf-8') + " " + o.tags[j].name.encode('utf-8')
+				s +=1
+		
+		mfile.write(str(s) + ' ' + str(float(s)/len(o.tags))  + '\n')	
+		print o.name
+	mfile.write('];\n')				
 
 #		for i in range(0,len(o.tags)):
 #			for j in range(0,len(o.tags)):
