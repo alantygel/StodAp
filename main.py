@@ -18,6 +18,7 @@ with open(config.objects_file, 'rb') as input:
 
 for o in ODP:
 	lang = o.get_language()	
+	print str(o.url) + " " + str(lang)
 	for tag in o.tags:
 		tag.set_meaning_2(lang)		
 

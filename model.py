@@ -212,7 +212,7 @@ class Tag:
 				#out = out + ";" + o.encode('utf-8')
 				self.meanings.append(o.encode('utf-8'))
 		#print out
-
+		print self.meanings
 
 
 
