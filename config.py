@@ -8,7 +8,7 @@ global DEBUG
 DEBUG = True
 
 global objects_file
-objects_file = 'ODP3.pkl'
+objects_file = 'ODP2.pkl'
 
 global wiki_out_file
 wiki_out_file = 'wiki_portal.txt'

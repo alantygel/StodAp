@@ -12,6 +12,9 @@ import cPickle as pickle
 import Levenshtein
 import lib
 
+
+
+
 class OpenDataPortal:
 	def __init__(self, url, name, num_of_tags, num_of_packages):
 		self.url = url
@@ -121,6 +124,27 @@ class OpenDataPortal:
 		#set tag count
 		self.set_tag_count()
 
+
+	def get_language(self):
+		import pycountry
+		try:
+			response = lib.urlopen_with_retry(self.url + '/api/3/action/status_show')
+		except:
+			response = 0
+
+		if response:
+			response_dict = json.loads(response.read())	
+			code_1 = response_dict['result']['locale_default']
+		
+			lang = str(code_1[0]) + str(code_1[1])
+			code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
+
+			#print code_1 + "; " + code_3
+			return code_3
+			#ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
+
+
+
 class Dataset:
 	def __init__(self, dataset):
 		self.name = dataset['title']
@@ -158,6 +182,41 @@ class Tag:
 				#	self.meanings.append('http://dbpedia.org/page/' + contents['annotation']['surfaceForm']['resource']['@uri'].encode('utf-8'))
 		except:
 			1 == 1
+
+	def set_meaning_2(self,lang):
+
+		import rdflib
+		from rdflib import URIRef
+		from rdflib import Graph
+		means = URIRef("http://lexvo.org/ontology#means")
+		seeAlso = URIRef("http://www.w3.org/2000/01/rdf-schema#seeAlso")
+
+		g = Graph()
+
+		g.parse("http://www.lexvo.org/data/term/" + lang + "/" + urllib.quote(self.name.encode('utf-8')))
+
+		self.meanings = []
+		#out = self.name.encode('utf-8')
+
+		if (None, seeAlso, None) in g:
+			#print "See Also found!"
+			for s,p,o in g.triples((None,seeAlso,None)):
+				#print o
+				#out = out + ";" + o.encode('utf-8')
+				self.meanings.append(o.encode('utf-8'))
+
+		if (None, means, None) in g:
+			#print "Meaning found!"
+			for s,p,o in g.triples((None,means,None)):
+				#print o
+				#out = out + ";" + o.encode('utf-8')
+				self.meanings.append(o.encode('utf-8'))
+		#print out
+
+
+
+
+
 
 class Tagging:
 	def __init__(self, tag, dataset):

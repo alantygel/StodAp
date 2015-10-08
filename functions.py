@@ -302,10 +302,12 @@ def WriteCSV():
 
 
 	csv_file = open(config.objects_file + '.csv', 'w')
-        csv_file.write("Name ; URL ; Number of Tags ; Number of Packages; Tags per dataset (mean) ; Tags with meaning\n")
+        csv_file.write("Name ; URL ; Number of Tags ; Very similar tags ; Number of Packages; Tags per dataset (mean) ; Tags with meaning\n")
 		
-	for o in ODP:
-		csv_file.write(o.name.encode('utf-8') + ";"+ o.url.encode('utf-8') + ";" + str(o.num_of_tags).encode('utf-8') + ";" + str(o.num_of_packages).encode('utf-8') + ";" + str(o.tags_per_dataset_mean()).encode('utf-8') + ";" + str(o.tags_with_meaning()).encode('utf-8') + "\n")
+	for k in range(0,len(ODP)):
+		o = ODP[k]
+		sim = Similarity_ODP(k)
+		csv_file.write(o.name.encode('utf-8') + ";"+ o.url.encode('utf-8') + ";" + str(o.num_of_tags).encode('utf-8') + ";" + str(sim) + ";"+ str(o.num_of_packages).encode('utf-8') + ";" + str(o.tags_per_dataset_mean()).encode('utf-8') + ";" + str(o.tags_with_meaning()).encode('utf-8') + "\n")
 	
 	csv_file.close()	
 
@@ -400,3 +402,50 @@ def Similarity2():
 #			mfile.write('\n')	
 #		mfile.write('];\n')
 	mfile.close()
+
+def Similarity_ODP(odp):
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	s = 0
+	o = ODP[odp]
+	srtd = sorted(map(lambda z: z.name.encode('utf-8'), o.tags),key=str.lower)
+	for i in range(1,len(o.tags)):
+		if unidecode(srtd[i].lower()) == unidecode(srtd[i-1].lower()):
+					#print o.tags[i].name.encode('utf-8') + " " + o.tags[j].name.encode('utf-8')
+			s +=1
+	
+	
+	return s
+
+def GetLanguage(o):
+
+		import pycountry
+
+#	with open(config.objects_file, 'rb') as input:
+#		ODP =  pickle.load(input)
+
+#	for o in ODP:	
+		try:
+			response = lib.urlopen_with_retry(o.url + '/api/3/action/status_show')
+		except:
+			response = 0
+
+		if response:
+
+
+			response_dict = json.loads(response.read())	
+			code_1 = response_dict['result']['locale_default']
+		
+			lang = str(code_1[0]) + str(code_1[1])
+			code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
+
+			#print code_1 + "; " + code_3
+			return code_3
+			#ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
+
+
+
+
+
+

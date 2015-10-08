@@ -2,23 +2,25 @@ import functions
 import config
 import cPickle as pickle
 
-functions.LoadODPs()
+#functions.LoadODPs()
 #functions.LoadODPData()
 #functions.WriteWikiPages()
 #functions.CalculateStats()
 #functions.TagsOverN(2)
 
-#with open(config.objects_file, 'rb') as input:
-#	ODP =  pickle.load(input)
+#functions.TagsDistribution()
+#functions.TagsPerDataset()
+#functions.Similarity2()
+#functions.WriteCSV()
+#functions.GetLanguage()
+with open(config.objects_file, 'rb') as input:
+	ODP =  pickle.load(input)
 
-#for o in ODP:
-#	for tag in o.tags:
-#		print "-------------------"
-#		print tag.name		
-#		tag.set_meaning()		
-#		for m in tag.meanings:
-#			print m
+for o in ODP:
+	lang = o.get_language()	
+	for tag in o.tags:
+		tag.set_meaning_2(lang)		
 
-#with open(config.objects_file, 'wb') as output:
-#	pickle.dump(ODP, output, -1)
+	with open(config.objects_file, 'wb') as output:
+		pickle.dump(ODP, output, -1)
 
