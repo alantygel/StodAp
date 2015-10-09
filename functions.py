@@ -295,14 +295,14 @@ def TagsOverN(N):
 	tags_over_n_perc = sorted (tags_over_n_perc)
 	return tags_over_n_perc	
 
-def WriteCSV():
+def WriteODPCSV():
 
 	with open(config.objects_file, 'rb') as input:
                 ODP =  pickle.load(input)
 
 
 	csv_file = open(config.objects_file + '.csv', 'w')
-        csv_file.write("Name ; URL ; Number of Tags ; Very similar tags ; Number of Packages; Tags per dataset (mean) ; Tags with meaning\n")
+	csv_file.write("Name ; URL ; Number of Tags ; Very similar tags ; Number of Packages; Tags per dataset (mean) ; Tags with meaning\n")
 		
 	for k in range(0,len(ODP)):
 		o = ODP[k]
@@ -310,6 +310,62 @@ def WriteCSV():
 		csv_file.write(o.name.encode('utf-8') + ";"+ o.url.encode('utf-8') + ";" + str(o.num_of_tags).encode('utf-8') + ";" + str(sim) + ";"+ str(o.num_of_packages).encode('utf-8') + ";" + str(o.tags_per_dataset_mean()).encode('utf-8') + ";" + str(o.tags_with_meaning()).encode('utf-8') + "\n")
 	
 	csv_file.close()	
+
+def WriteTagsCSV():
+
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	csv_file = open(config.objects_file + '.tags.csv', 'w')
+
+	csv_file.write("URL ; Tags ; Count s\n")
+		
+	for k in range(0,len(ODP)):
+		o = ODP[k]
+		for t in o.tags:
+			csv_file.write(o.url.encode('utf-8') + ";" + t.name.encode('utf-8') + ";" + str(t.count) + "\n")
+	
+	csv_file.close()	
+	
+def MostUsedTags():
+
+	with open(config.objects_file, 'rb') as input:
+                ODP =  pickle.load(input)
+
+	csv_file = open(config.objects_file + '.most_used_tags.csv', 'w')
+	csv_file.write("Tags ; URLs ; Count (times) ; Count (ODPs) \n")
+			
+	alltags = []	
+
+	for o in ODP:
+		for t in o.tags:
+			alltags.append(model.AllTags(t.name,o.url,t.count,o.lang))
+
+
+	alltags = sorted(alltags,key=lambda x: x.name)
+
+	all_unique = [alltags[0]]
+	s = 0
+	for k in range(0,len(alltags)-1):
+		if (unidecode(alltags[k].name.lower()) != unidecode(alltags[k+1].name.lower())):
+			all_unique.append(alltags[k+1])
+			s += 1
+		else:
+			if alltags[k].url != alltags[k+1].url:
+				all_unique[s].global_count += 1
+				all_unique[s].url.append(alltags[k+1].url)
+				if alltags[k].lang != alltags[k+1].lang:
+					all_unique[s].lang += ";" + alltags[k+1].lang
+			all_unique[s].count += alltags[k+1].count
+
+	all_unique = sorted(all_unique,key=lambda x: x.global_count, reverse = True)
+
+	for t in all_unique:
+		#url = ' '.join(t.url).encode('utf-8')
+		#csv_file.write(t.name.encode('utf-8') + ";" + str(url) + ";" + str(t.count) + ";" + str(t.global_count) + "\n")
+		csv_file.write(t.name.encode('utf-8') + ";" + ";" + str(t.count) + ";" + str(t.global_count) + "\n")	
+	csv_file.close()
+	return alltags, all_unique
 
 def TagsDistribution():
 
@@ -422,10 +478,6 @@ def GetLanguage(o):
 
 		import pycountry
 
-#	with open(config.objects_file, 'rb') as input:
-#		ODP =  pickle.load(input)
-
-#	for o in ODP:	
 		try:
 			response = lib.urlopen_with_retry(o.url + '/api/3/action/status_show')
 		except:
@@ -433,19 +485,127 @@ def GetLanguage(o):
 
 		if response:
 
-
 			response_dict = json.loads(response.read())	
 			code_1 = response_dict['result']['locale_default']
 		
-			lang = str(code_1[0]) + str(code_1[1])
-			code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
+			if code_1:
+				lang = str(code_1[0]) + str(code_1[1])
+				code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
+			else:
+				code_3 = 'eng'
 
 			#print code_1 + "; " + code_3
 			return code_3
 			#ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
 
+def LoadGlobalTags():
+	'''	
+	This function creates an array of AllTags. Each element is the name of a tag, and stores the urls where it is used, including translated versions. 
+	This array is the used to generate a wiki page.
+	'''
+	print "#step 1: get most used tags"	
+	all_tags, most_used = MostUsedTags()
+
+	print "#step 2: start the Global Tags Dataset"	
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	global_tags = []
+
+	for i in range(0,10):
+		G = model.GlobalTag(most_used[i].name)
+		local_tags = find_in_tags(ODP,most_used[i].name)
+		for l in local_tags:		
+			G.local_tags.append(l)
+		global_tags.append(G)
+
+	print "#step 3: find the tags meanings"
+	import rdflib
+	from rdflib import URIRef
+	from rdflib import Graph
+	means = URIRef("http://lexvo.org/ontology#means")
+	seeAlso = URIRef("http://www.w3.org/2000/01/rdf-schema#seeAlso")
+	translation = URIRef("http://lexvo.org/ontology#translation")
+	literal_form = URIRef("http://www.w3.org/2008/05/skos-xl#literalForm")
+
+	for global_tag in global_tags:	
+		g = Graph()
+		parse = True	
+		try:
+			g.parse("http://www.lexvo.org/data/term/" + global_tag.lang + "/" + urllib.quote(global_tag.label.encode('utf-8').lower()))
+		except:
+			parse = False
+
+		if parse:
+			for s,p,o in g.triples((None,means,None)):
+				global_tag.resources.append(str(o))
+
+			for s,p,o in g.triples((None,seeAlso,None)):
+				global_tag.resources.append(str(o))
 
 
+	print "#step 4: find the tags in other idioms"	
+	
+	for global_tag in global_tags:	
+		g = Graph()
+		parse = True	
+		try:
+			g.parse("http://www.lexvo.org/data/term/" + global_tag.lang + "/" + urllib.quote(global_tag.label.encode('utf-8').lower()))
+		except:
+			parse = False
 
+		if parse:
+			for s,p,o in g.triples((None,translation,None)):
+				#TODO UGLY - Dont do this!!!
+				translated = str(o).split("/")[len(str(o).split("/"))-1]
+				translated = urllib.unquote(translated).decode('utf8') 
+#				print global_tag.label + " === " + translated
+#				raw_input("Press Enter to continue...")
+
+				#TODO unencode special chars
+				tags = find_in_tags(ODP,translated)
+				for t in tags: 
+					global_tag.local_tags.append(t)
+
+		with open(config.global_tags_file, 'wb') as output:
+			pickle.dump(global_tags, output, -1)
+
+
+#	print "----------"	
+#	for global_tag in global_tags:
+#		print global_tag.label
+#		for l in global_tag.local_tags:
+#			print l
+#		for r in global_tag.resources:
+#			print r
+
+#		print "----------"
+
+	return global_tags
+
+def find_in_tags(ODP, name):
+	result = []
+	for o in ODP:
+		for t in o.tags:
+			if t.name == name:
+				result.append(model.LocalTag(t.name,o.url, t.count, o.lang))
+	return result				
+	
+def WriteWikiPages(global_tags):
+	
+	pages_ODP = open(config.wiki_out_file, 'wb')
+	for g in global_tags:
+	
+		pages_ODP.write(g.label + '\n\n')
+		pages_ODP.write('--ENDTITLE--\n\n')
+
+		pages_ODP.write('{{Global Tag\n')
+		pages_ODP.write('|1=' + str(g.description) + '\n')
+		pages_ODP.write('|2=' + str(g.resources_print()) + '\n')
+		pages_ODP.write('|3=' + g.local_tags_print().encode('utf-8') + '\n')
+		pages_ODP.write('|4=' + str(g.related_print()) + '\n')
+		pages_ODP.write('}}' + '\n')
+
+		pages_ODP.write('--ENDPAGE--\n\n')
 
 

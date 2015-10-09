@@ -11,17 +11,31 @@ import cPickle as pickle
 #functions.TagsDistribution()
 #functions.TagsPerDataset()
 #functions.Similarity2()
-#functions.WriteCSV()
+#functions.WriteTagsCSV()
 #functions.GetLanguage()
-with open(config.objects_file, 'rb') as input:
-	ODP =  pickle.load(input)
+#functions.MostUsedTags()
+#functions.LoadGlobalTags()
 
-for o in ODP:
-	lang = o.get_language()	
-	print str(o.url) + " " + str(lang)
-	for tag in o.tags:
-		tag.set_meaning_2(lang)		
 
-	with open(config.objects_file, 'wb') as output:
-		pickle.dump(ODP, output, -1)
+with open(config.global_tags_file, 'rb') as input:
+	g =  pickle.load(input)
+
+functions.WriteWikiPages(g)
+
+#with open(config.objects_file, 'rb') as input:
+#	ODP =  pickle.load(input)
+
+#r = functions.find_in_tags(ODP, "health")
+
+#for a in r:
+#	print a
+#for o in ODP:
+#	print str(o.url) + " " + str(o.lang)
+#	for tag in o.tags:
+#		if [int(strj[i]) for i in range(0,len(tag.name)) if tag.name[i].isdigit()] == []:
+#		tag.set_meaning_2(lang)		
+
+#with open(config.objects_file, 'wb') as output:
+#	pickle.dump(ODP, output, -1)
+	
 

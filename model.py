@@ -125,25 +125,29 @@ class OpenDataPortal:
 		self.set_tag_count()
 
 
-	def get_language(self):
+	def set_language(self):
 		import pycountry
+
 		try:
 			response = lib.urlopen_with_retry(self.url + '/api/3/action/status_show')
 		except:
 			response = 0
 
 		if response:
+
 			response_dict = json.loads(response.read())	
 			code_1 = response_dict['result']['locale_default']
 		
-			lang = str(code_1[0]) + str(code_1[1])
-			code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
+			if code_1:
+				lang = str(code_1[0]) + str(code_1[1])
+				code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
+			else:
+				code_3 = 'eng'
 
+			self.lang = code_3
 			#print code_1 + "; " + code_3
 			return code_3
 			#ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
-
-
 
 class Dataset:
 	def __init__(self, dataset):
@@ -192,27 +196,32 @@ class Tag:
 		seeAlso = URIRef("http://www.w3.org/2000/01/rdf-schema#seeAlso")
 
 		g = Graph()
-
-		g.parse("http://www.lexvo.org/data/term/" + lang + "/" + urllib.quote(self.name.encode('utf-8')))
+		parse = True		
+		
+		try:
+			g.parse("http://www.lexvo.org/data/term/" + lang + "/" + urllib.quote(self.name.encode('utf-8')))
+		except:
+			parse = False
 
 		self.meanings = []
-		#out = self.name.encode('utf-8')
+		if parse:
+			#out = self.name.encode('utf-8')
 
-		if (None, seeAlso, None) in g:
-			#print "See Also found!"
-			for s,p,o in g.triples((None,seeAlso,None)):
-				#print o
-				#out = out + ";" + o.encode('utf-8')
-				self.meanings.append(o.encode('utf-8'))
+			if (None, seeAlso, None) in g:
+				#print "See Also found!"
+				for s,p,o in g.triples((None,seeAlso,None)):
+					#print o
+					#out = out + ";" + o.encode('utf-8')
+					self.meanings.append(o.encode('utf-8'))
 
-		if (None, means, None) in g:
-			#print "Meaning found!"
-			for s,p,o in g.triples((None,means,None)):
-				#print o
-				#out = out + ";" + o.encode('utf-8')
-				self.meanings.append(o.encode('utf-8'))
+			if (None, means, None) in g:
+				#print "Meaning found!"
+				for s,p,o in g.triples((None,means,None)):
+					#print o
+					#out = out + ";" + o.encode('utf-8')
+					self.meanings.append(o.encode('utf-8'))
 		#print out
-		print self.meanings
+		#print self.meanings
 
 
 
@@ -223,3 +232,52 @@ class Tagging:
 		self.tag_id = tag['id']
 		self.dataset_id = dataset['id']	
 
+class AllTags:
+	def __init__(self,name,url,count, lang):
+		self.name = name
+		self.url = [url]
+		self.count = count
+		self.global_count = 1
+		self.lang = lang
+
+class GlobalTag:
+	def __init__(self,label):
+		self.label = label
+		self.description = None
+		self.resources = []
+		self.local_tags = []
+		self.lang = "eng" #the global tag shall always be in english
+		self.related = None
+
+	def resources_print(self):
+		out = ""
+		for r in self.resources:
+			out += str(r) + ","
+		return out
+
+	def local_tags_print(self):
+		out = ""
+		self.local_tags = list(set(self.local_tags))
+		for r in self.local_tags:
+			out += r.url + "/dataset?tags=" + r.name + ", " 
+		return out
+
+	def related_print(self):
+		out = ""
+#		for r in self.related:
+#			out += str(r) + ","
+		return out
+
+
+class LocalTag:
+	def __init__(self,name,url,count, lang):
+		self.name = name
+		self.url = url
+		self.count = count
+		self.lang = lang
+	def __repr__(self):		
+		return self.name + "-" + self.url + "-" + str(self.count) + "-" + self.lang	
+	def __eq__(self, other):
+		return self.url == other.url
+	def __hash__(self):
+		return hash(('url', self.url))
