@@ -318,13 +318,16 @@ def WriteTagsCSV():
 
 	csv_file = open(config.objects_file + '.tags.csv', 'w')
 
-	csv_file.write("URL ; Tags ; Count s\n")
+	csv_file.write("URL ; Tag ; Count ; Meanings\n")
 		
 	for k in range(0,len(ODP)):
 		o = ODP[k]
 		for t in o.tags:
-			csv_file.write(o.url.encode('utf-8') + ";" + t.name.encode('utf-8') + ";" + str(t.count) + "\n")
-	
+			csv_file.write(o.url.encode('utf-8') + ";" + t.name.encode('utf-8') + ";" + str(t.count))
+			for m in t.meanings:
+				csv_file.write(";" + m)
+			csv_file.write("\n")				
+
 	csv_file.close()	
 	
 def MostUsedTags():
@@ -474,29 +477,29 @@ def Similarity_ODP(odp):
 	
 	return s
 
-def GetLanguage(o):
+#def GetLanguage(o):
 
-		import pycountry
+#		import pycountry
 
-		try:
-			response = lib.urlopen_with_retry(o.url + '/api/3/action/status_show')
-		except:
-			response = 0
+#		try:
+#			response = lib.urlopen_with_retry(o.url + '/api/3/action/status_show')
+#		except:
+#			response = 0
 
-		if response:
+#		if response:
 
-			response_dict = json.loads(response.read())	
-			code_1 = response_dict['result']['locale_default']
-		
-			if code_1:
-				lang = str(code_1[0]) + str(code_1[1])
-				code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
-			else:
-				code_3 = 'eng'
+#			response_dict = json.loads(response.read())	
+#			code_1 = response_dict['result']['locale_default']
+#		
+#			if code_1:
+#				lang = str(code_1[0]) + str(code_1[1])
+#				code_3 = pycountry.languages.get(iso639_1_code=lang).iso639_3_code
+#			else:
+#				code_3 = 'eng'
 
-			#print code_1 + "; " + code_3
-			return code_3
-			#ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
+#			#print code_1 + "; " + code_3
+#			return code_3
+#			#ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
 
 def LoadGlobalTags():
 	'''	
