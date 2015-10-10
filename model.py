@@ -197,35 +197,31 @@ class Tag:
 
 		g = Graph()
 		parse = True		
-		
 		try:
+			print "http://www.lexvo.org/data/term/" + lang + "/" + urllib.quote(self.name.encode('utf-8'))
 			g.parse("http://www.lexvo.org/data/term/" + lang + "/" + urllib.quote(self.name.encode('utf-8')))
 		except:
 			parse = False
 
 		self.meanings = []
 		if parse:
-			#out = self.name.encode('utf-8')
+			out = self.name.encode('utf-8')
 
 			if (None, seeAlso, None) in g:
 				#print "See Also found!"
 				for s,p,o in g.triples((None,seeAlso,None)):
 					#print o
-					#out = out + ";" + o.encode('utf-8')
+					out = out + ";" + o.encode('utf-8')
 					self.meanings.append(o.encode('utf-8'))
 
 			if (None, means, None) in g:
 				#print "Meaning found!"
 				for s,p,o in g.triples((None,means,None)):
 					#print o
-					#out = out + ";" + o.encode('utf-8')
+					out = out + ";" + o.encode('utf-8')
 					self.meanings.append(o.encode('utf-8'))
-		#print out
+		print out
 		#print self.meanings
-
-
-
-
 
 class Tagging:
 	def __init__(self, tag, dataset):

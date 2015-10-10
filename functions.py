@@ -512,7 +512,7 @@ def LoadGlobalTags():
 
 	global_tags = []
 
-	for i in range(0,10):
+	for i in range(0,100):
 		G = model.GlobalTag(most_used[i].name)
 		local_tags = find_in_tags(ODP,most_used[i].name)
 		for l in local_tags:		
