@@ -255,7 +255,9 @@ class GlobalTag:
 		out = ""
 		self.local_tags = list(set(self.local_tags))
 		for r in self.local_tags:
-			out += r.url + "/dataset?tags=" + r.name + ", " 
+			tag_url = r.url + "/dataset?tags=" + r.name
+			odp_url = r.url.replace("http://","").replace("www.","").rstrip("/")
+			out += "{{Display Tagged Resource |1=" + tag_url + " |2=" + odp_url + " |3=" + r.name + "}},"
 		return out
 
 	def related_print(self):
