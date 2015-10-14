@@ -20,3 +20,6 @@ global instances_file
 #instances_file = 'instances.json'
 instances_file = 'instances_debug.json'
 #instances_file = 'instances_test.json'
+
+global groups_file
+groups_file = 'groups.pkl'

@@ -25,6 +25,7 @@ class OpenDataPortal:
 		self.tags = []
 		self.datasets = []
 		self.tagging = []
+		self.groups = []
 
 
 	def __repr__(self):
@@ -149,6 +150,43 @@ class OpenDataPortal:
 			return code_3
 			#ODP.append(model.OpenDataPortal(url, i['title'], len(result), len(packages)))
 
+	def load_groups(self):
+		"get all groups from a CKAN website and count the datasets in it"
+		group_list_response = False;
+		try:		
+			group_list_response = lib.urlopen_with_retry(self.url + '/api/3/action/group_list?all_fields=True')
+		except:
+			#1 == 1 
+			print "Failed: " + self.url
+
+		if group_list_response: 
+			try: 
+				group_list_dict = json.loads(group_list_response.read())	
+				group_list = group_list_dict['result']
+			except:
+				#1 == 1
+				print "Failed 2: " + self.url
+			for group in group_list:
+				#difference in the apis
+				try:
+					package_count = group['packages'];
+				except:
+					try:
+						package_count = group['package_count'];
+					except:
+						package_count = 0
+				g = Group(group['name'],package_count)
+				self.groups.append(g)
+
+class Group:
+	def __init__(self, name, n_datasets):
+		self.name = name
+		self.n_datasets = n_datasets
+
+	def __repr__(self):
+		return repr(self.name)
+
+
 class Dataset:
 	def __init__(self, dataset):
 		self.name = dataset['title']
@@ -239,7 +277,7 @@ class AllTags:
 class GlobalTag:
 	def __init__(self,label):
 		self.label = label
-		self.description = None
+		self.description = []
 		self.resources = []
 		self.local_tags = []
 		self.lang = "eng" #the global tag shall always be in english
@@ -276,6 +314,6 @@ class LocalTag:
 	def __repr__(self):		
 		return self.name + "-" + self.url + "-" + str(self.count) + "-" + self.lang	
 	def __eq__(self, other):
-		return self.url == other.url
+		return (self.url == other.url) and (self.name == other.name)
 	def __hash__(self):
-		return hash(('url', self.url))
+		return hash(('url', self.url,'name',self.name))

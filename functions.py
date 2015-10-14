@@ -14,7 +14,7 @@ import cPickle as pickle
 import numpy
 import lib
 from unidecode import unidecode
-
+import Levenshtein
 
 def LoadODPs():
 	"Reads the instance files, and initialize a list of ODP objects"
@@ -239,13 +239,39 @@ def CalculateStats():
 	tags_with_meaning = numpy.array(tags_with_meaning);		
 
 	print "------"
-	print("Tags per dataset (average): %.2f" % tags_per_ds.mean())
+	print("Tags per dataset (av.): %.2f" % tags_per_ds.mean())
 	print("Tags per dataset (max): %.2f" % tags_per_ds.max())
 	print("Tags per dataset (min): %.2f" % tags_per_ds.min())
 	print "------"
-	print("Tags with meaning (mean): %.2f" % tags_with_meaning.mean())
+	print("Tags with meaning (av.): %.2f" % tags_with_meaning.mean())
 	print("Tags with meaning (max): %.2f" % tags_with_meaning.max())
 	print("Tags with meaning (min): %.2f" % tags_with_meaning.min())
+
+def GroupStats():
+	with open(config.groups_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	tg = 0
+	N = 0
+	no_groups =0
+	ds_group = []
+	for o in ODP:
+		if len(o.groups) > 0:
+			tg += len(o.groups)
+			N += 1
+			for g in o.groups:
+				if g.n_datatasets > 0:
+					ds_group.append(g.n_datatasets)
+		else:
+			no_groups += 1
+	
+	ds_group = numpy.array(ds_group);
+
+	print 'Number of groups: ' , str(tg)
+	print 'ODP without groups: ' , str(no_groups)
+	print 'Groups / ODP: ' , str(tg/float(N))
+	print 'Datasets / Group: ' , ds_group.mean()
+
 
 def CalculateUniqueTags():
 	with open(config.objects_file, 'rb') as input:
@@ -273,6 +299,9 @@ def TagsOverN(N):
 	mfile = open('percentage_over_' + str(N) + '.m', 'w')
 	mfile.write ('tags_over_n = ['  + '\n')
 
+	mfile_m = open('percentage_over_' + str(N) + '_merged.m', 'w')
+	mfile_m.write ('tags_over_n_merged = ['  + '\n')
+
 	with open(config.objects_file, 'rb') as input:
 		ODP =  pickle.load(input)
 
@@ -287,11 +316,48 @@ def TagsOverN(N):
 		else:		
 			res = 0
 
+		av_reuse = sum(map(lambda z: z.count, ODP[o].tags))/float(len(ODP[o].tags))
+
 		tags_over_n_perc.append(res)
-		mfile.write (str(o) + ' ' + str(res) + '\n')
+		mfile.write (str(tags_over_n) + ' ' + str(res) + " " + str(av_reuse) +'\n')
+
+		# merge similar tags
+		alltags = []
+		odp = ODP[o]	
+		for t in odp.tags:
+			alltags.append(model.AllTags(t.name,odp.url,t.count,odp.lang))
+		alltags = sorted(alltags,key=lambda x: x.name)
+
+		k = 0
+		print odp.url
+		while k < len(alltags)-1:
+			if (unidecode(alltags[k].name.lower()) == unidecode(alltags[k+1].name.lower())):
+				alltags[k].count += alltags[k+1].count
+				alltags.remove(alltags[k+1])
+				k -= 1		
+			k += 1
+			#print str(k) + " " + str(len(list))
+
+		tags_over_n = 0
+		for t in alltags:
+			if int(t.count) > N:
+				tags_over_n += 1
+		if len(alltags) != 0:
+			res2 = float(tags_over_n)/float(len(alltags))
+		else:		
+			res2 = 0
+
+		av_reuse_m = sum(map(lambda z: z.count, alltags))/float(len(alltags))
+		print av_reuse_m
+
+		mfile_m.write (str(tags_over_n) + ' ' + str(res2) +  " " + str(av_reuse_m) + '\n')
 
 	mfile.write ('];')
 	mfile.close()
+
+	mfile_m.write ('];')
+	mfile_m.close()
+
 	tags_over_n_perc = sorted (tags_over_n_perc)
 	return tags_over_n_perc	
 
@@ -434,9 +500,9 @@ def Similarity():
 #		mfile.write('];\n')
 	mfile.close()
 
-def Similarity2():
+def Similarity2(method = 'naive'):
 
-	mfile = open('similarity.m', 'w')
+	mfile = open('similarity_' + method + '.m', 'w')
 
 	with open(config.objects_file, 'rb') as input:
 		ODP =  pickle.load(input)
@@ -447,11 +513,16 @@ def Similarity2():
 		s = 0
 		srtd = sorted(map(lambda z: z.name.encode('utf-8'), o.tags),key=str.lower)
 		for i in range(1,len(o.tags)):
-			if unidecode(srtd[i].lower()) == unidecode(srtd[i-1].lower()):
-						#print o.tags[i].name.encode('utf-8') + " " + o.tags[j].name.encode('utf-8')
-				s +=1
+			if method == 'naive':
+				if unidecode(srtd[i].lower()) == unidecode(srtd[i-1].lower()):
+					#print o.tags[i].name.encode('utf-8') + " " + o.tags[j].name.encode('utf-8')
+					s +=1
+			else:
+				if Levenshtein.distance(unidecode(srtd[i].lower()),unidecode(srtd[i-1].lower())) < 3:
+					s +=1					
+				
 		
-		mfile.write(str(s) + ' ' + str(float(s)/len(o.tags))  + '\n')	
+		mfile.write(o.url + " " + str(s) + ' ' + str(float(s)/len(o.tags)) + " " + str(len(o.tags)) + '\n')	
 		print o.name
 	mfile.write('];\n')				
 
@@ -515,7 +586,7 @@ def LoadGlobalTags():
 
 	global_tags = []
 
-	for i in range(0,100):
+	for i in range(0,200):
 		G = model.GlobalTag(most_used[i].name)
 		local_tags = find_in_tags(ODP,most_used[i].name)
 		for l in local_tags:		
@@ -562,11 +633,10 @@ def LoadGlobalTags():
 				#TODO UGLY - Dont do this!!!
 				translated = str(o).split("/")[len(str(o).split("/"))-1]
 				translated = urllib.unquote(translated).decode('utf8') 
-#				print global_tag.label + " === " + translated
+				print global_tag.label + " === " + translated
 #				raw_input("Press Enter to continue...")
 
-				#TODO unencode special chars
-				tags = find_in_tags(ODP,translated)
+				tags = find_in_tags(ODP,translated.encode('utf8'))
 				for t in tags: 
 					global_tag.local_tags.append(t)
 
@@ -590,25 +660,59 @@ def find_in_tags(ODP, name):
 	result = []
 	for o in ODP:
 		for t in o.tags:
-			if t.name == name:
+			if t.name.lower() == name.lower():
 				result.append(model.LocalTag(t.name,o.url, t.count, o.lang))
 	return result				
 	
-def WriteWikiPages(global_tags):
+def WriteWikiPages():
 	
+	with open(config.global_tags_file, 'rb') as input:
+		global_tags = pickle.load(input)
+
 	pages_ODP = open(config.wiki_out_file, 'wb')
 	for g in global_tags:
-	
+		
 		pages_ODP.write(g.label + '\n\n')
-		pages_ODP.write('--ENDTITLE--\n\n')
+		pages_ODP.write('--ENDTITLE--\n')
 
 		pages_ODP.write('{{Global Tag\n')
-		pages_ODP.write('|1=' + str(g.description) + '\n')
+		
+		if g.description:
+			pages_ODP.write('|1=' + g.description.encode('utf-8') + '\n')
 		pages_ODP.write('|2=' + str(g.resources_print()) + '\n')
 		pages_ODP.write('|3=' + g.local_tags_print().encode('utf-8') + '\n')
 		pages_ODP.write('|4=' + str(g.related_print()) + '\n')
 		pages_ODP.write('}}' + '\n')
 
 		pages_ODP.write('--ENDPAGE--\n\n')
+
+def SignificanceOfTagsWithMeaning():
+	
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+
+	N = 0;	n = 0;	S = 0;	s = 0; x = 0 ; X = 0; z = 0 ; Z = 0
+	for o in ODP:
+		for tag in o.tags:
+			N += tag.count
+			n += 1
+			if ([int(tag.name[i]) for i in range(0,len(tag.name)) if tag.name[i].encode('utf-8').isdigit()] == []) and (len(tag.name)>3):
+				if tag.meanings != []:	
+					S +=tag.count
+					s += 1
+				else:
+					Z +=tag.count
+					z += 1
+			else:
+				x +=1
+				X += tag.count
+
+	print "With meaning (perc): " + str(s/float(n)*100)
+ 	print "Not analysed (perc): " + str(x/float(n)*100)
+ 	print "No meaning (perc): " + str(z/float(n)*100)
+
+ 	print "With meaning (sig): " + str(S/float(N)*100)
+ 	print "Not analysed (sig): " + str(X/float(N)*100)
+ 	print "No meaning (sig): " + str(Z/float(N)*100)
 
 
