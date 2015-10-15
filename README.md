@@ -1,20 +1,43 @@
-# StodAp
-Semantic Tags for Open DAta Portals
+# Tag Analysis of Open Data Portals
 
-The StodAp Project aims to build a central semantic tag server to help organizing and linking Open Data Portals. It is composed by 2 parts:
+This repository holds the code of a Tag Analysis of Open Data Portals. It was used to generate data for the paper XXX, which is currently under review for ICSC2016.
 
-## Media Wiki ##
+## Description ##
+The objective of this script is:
+1) Collect the tags of Open Data Portals using CKAN;
+2) Analyze Data.
 
-The tag server is an instance of Media Wiki run with the Semantic Media Wiki extension. In this server, every tag, dataset and portal becomes a wiki/semantic resource, and thus can be interconnected. This dataset can also be downloaded as RDF.
+### Data Collection ###
 
-## CKAN Extension ##
+The data collection is done in the following order:
+1) functions.LoadODPs()
+Fill the OpenDataPortal class with the portals pointed by https://github.com/ckan/ckan-instances/blob/gh-pages/config/instances.json.
 
-The CKAN Extension makes the connection between an Open Data Portal and the tag central server, and provides sugestions of related databases from other portals.
+2) functions.LoadODPData()
+Go trough each ODP and load the tags and other informations described by the model.
 
-## Architecture ##
+### Data Analysis ###
 
-![StodAp Client Server Architecture](clientserver.jpg "StodAp Client Server Architecture")
+1) functions.CalculateStats()
+Prints general statistics.
+
+#functions.WriteWikiPages()
+#functions.TagsOverN(1)
+#functions.TagsDistribution()
+#functions.TagsPerDataset()
+#functions.Similarity2('naive')
+#functions.WriteTagsCSV()
+#functions.GetLanguage()
+#functions.MostUsedTags()
+#functions.LoadGlobalTags()
+#functions.GroupStats()
+#functions.SignificanceOfTagsWithMeaning()
+
 
 ## Dependencies
-pip install python-Levenshtein
-pip install numpy
+Levenshtein, numpy,unidecode, urllib2, urllib, json, pprint, cPickle as pickle, rdflib
+
+## Related Work
+http://stodap.org/
+https://github.com/alantygel/ckanext-tagmanager
+https://github.com/alantygel/ckanext-semantictags
