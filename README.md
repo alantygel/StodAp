@@ -1,41 +1,59 @@
 # Tag Analysis of Open Data Portals
 
-This repository holds the code of a Tag Analysis of Open Data Portals. It was used to generate data for the paper XXX, which is currently under review for ICSC2016.
+This repository holds the code of a Tag Analysis of Open Data Portals. It was used to generate data for the paper Towards Cleaning-up Open Data Portals: A Metadata Reconciliation Approach, which is currently under review for ICSC2016.
 
-## Description ##
+## Description
 The objective of this script is:
-1) Collect the tags of Open Data Portals using CKAN;
-2) Analyze Data.
 
-### Data Collection ###
+#### Collect the tags of Open Data Portals using CKAN;
+#### Analyze Data.
+
+### Data Collection
 
 The data collection is done in the following order:
-1) functions.LoadODPs()
+#### functions.LoadODPs()
 Fill the OpenDataPortal class with the portals pointed by https://github.com/ckan/ckan-instances/blob/gh-pages/config/instances.json.
 
-2) functions.LoadODPData()
+#### functions.LoadODPData()
 Go trough each ODP and load the tags and other informations described by the model.
 
-### Data Analysis ###
+### Data Analysis
 
-1) functions.CalculateStats()
+###functions.CalculateStats()
 Prints general statistics.
 
-#functions.WriteWikiPages()
-#functions.TagsOverN(1)
-#functions.TagsDistribution()
-#functions.TagsPerDataset()
-#functions.Similarity2('naive')
-#functions.WriteTagsCSV()
-#functions.GetLanguage()
-#functions.MostUsedTags()
-#functions.LoadGlobalTags()
-#functions.GroupStats()
-#functions.SignificanceOfTagsWithMeaning()
+####functions.TagsOverN(n)
+Prints the number of tags used more than n times. Generates mfiles.
 
+####functions.WriteWikiPages()
+Writes the pages to be uploaded in http://stodap.org.
+
+####functions.TagsDistribution()
+Writes the distribution of tags among the portal. Generates mfiles.
+
+####functions.TagsPerDataset()
+Writes the distribution of tags per datasets in each portal. Generates mfiles.
+
+####functions.Similarity2(method)
+Calculates the similarity between tags a same portal.
+
+####functions.WriteTagsCSV()
+Writes CSV file with all tags.
+
+####functions.MostUsedTags()
+Writes CSV file with most used tags among the ODPs.
+
+####functions.LoadGlobalTags()
+Load the Global Tags, to be written in the Tag Server.
+
+####functions.GroupStats()
+Prints the statistics about groups.
+
+####functions.SignificanceOfTagsWithMeaning()
+Prints the proportion of tags connected to semantic resources, in absoulte number and weighted by usage.
 
 ## Dependencies
-Levenshtein, numpy,unidecode, urllib2, urllib, json, pprint, cPickle as pickle, rdflib
+Levenshtein, numpy,unidecode, urllib2, urllib, json, pprint, cPickle as pickle, rdflib, pycountry
 
 ## Related Work
 http://stodap.org/
