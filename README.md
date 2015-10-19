@@ -5,8 +5,11 @@ This repository holds the code of a Tag Analysis of Open Data Portals. It was us
 ## Description
 The objective of this script is:
 
-#### Collect the tags of Open Data Portals using CKAN;
-#### Analyze Data.
+1) Collect the tags of Open Data Portals using 
+
+2) Analyze Data.
+
+To reproduce the results described in the paper, run the Analysis module using data previously. If you collect data again, results will differ because site are frequently updated.
 
 ### Data Collection
 

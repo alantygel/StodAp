@@ -124,7 +124,8 @@ class OpenDataPortal:
 						1 == 1
 		#set tag count
 		self.set_tag_count()
-
+		self.set_language()
+		self.load_groups()
 
 	def set_language(self):
 		import pycountry
