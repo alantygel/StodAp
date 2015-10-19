@@ -153,6 +153,11 @@ class OpenDataPortal:
 
 	def load_groups(self):
 		"get all groups from a CKAN website and count the datasets in it"
+		with open(config.groups_file, 'rb') as input:
+	        groups =  pickle.load(input)
+			
+	
+
 		group_list_response = False;
 		try:		
 			group_list_response = lib.urlopen_with_retry(self.url + '/api/3/action/group_list?all_fields=True')
@@ -178,6 +183,9 @@ class OpenDataPortal:
 						package_count = 0
 				g = Group(group['name'],package_count)
 				self.groups.append(g)
+
+		with open(config.groups_file, 'wb') as output:
+			pickle.dump(groups, output, -1)		
 
 class Group:
 	def __init__(self, name, n_datasets):
