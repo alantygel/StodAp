@@ -11,7 +11,7 @@ import pprint
 import cPickle as pickle
 import Levenshtein
 import lib
-
+import config
 
 
 
@@ -80,6 +80,8 @@ class OpenDataPortal:
 		"get all tags from a CKAN website and count the occurences"
 		tag_list = False
 
+		if config.DEBUG: print "start collect tags"
+
 		#get tags
 		try:		
 			tag_list_response = lib.urlopen_with_retry(self.url + '/api/3/action/tag_list?all_fields=True')
@@ -92,6 +94,7 @@ class OpenDataPortal:
 			except:
 				1 == 1
 			for tag in tag_list:
+				if config.DEBUG: print tag
 				self.add_tag(tag)
 
 		#get datasets
@@ -99,6 +102,8 @@ class OpenDataPortal:
 			dataset_list_response = lib.urlopen_with_retry(self.url + '/api/3/action/package_list')
 		except:
 			1 == 1
+
+		if config.DEBUG: print "start collect datasets"
 
 		if dataset_list_response: 
 			try: 
@@ -122,10 +127,15 @@ class OpenDataPortal:
 							self.add_tagging(tag, dataset_allfields)
 					except:
 						1 == 1
+
+		if config.DEBUG: print "final tasks"
+
 		#set tag count
 		self.set_tag_count()
 		self.set_language()
 		self.load_groups()
+		for tag in self.tags:
+			tag.set_cooccurences(self)
 
 	def set_language(self):
 		import pycountry
@@ -154,10 +164,8 @@ class OpenDataPortal:
 	def load_groups(self):
 		"get all groups from a CKAN website and count the datasets in it"
 		with open(config.groups_file, 'rb') as input:
-	        groups =  pickle.load(input)
+			groups = pickle.load(input)
 			
-	
-
 		group_list_response = False;
 		try:		
 			group_list_response = lib.urlopen_with_retry(self.url + '/api/3/action/group_list?all_fields=True')
@@ -210,6 +218,7 @@ class Tag:
 		self.name = tag['name']
 		self.tag_id = tag['id']
 		self.set_meaning()
+		self.cooccurences = []
 
 	def __repr__(self):
 		return repr(self.name)
@@ -269,6 +278,19 @@ class Tag:
 					self.meanings.append(o.encode('utf-8'))
 		#print out
 		#print self.meanings
+	def set_cooccurences(self,ODP):
+		
+		self.cooccurences = []
+		datasets = []
+		for tg in ODP.tagging:
+			if tg.tag_id == self.tag_id:
+				datasets.append(tg)
+		
+		for dt in datasets:
+			for tg in ODP.tagging:
+				if (dt.dataset_id == tg.dataset_id) and (self.tag_id != tg.tag_id):
+					self.cooccurences.append(tg.tag_id)
+		
 
 class Tagging:
 	def __init__(self, tag, dataset):
@@ -298,6 +320,12 @@ class GlobalTag:
 			out += str(r) + ","
 		return out
 
+	def related_print(self):
+		out = ""
+		for r in self.related:
+			out += str(r.label) + ","
+		return out
+
 	def local_tags_print(self):
 		out = ""
 		self.local_tags = list(set(self.local_tags))
@@ -307,12 +335,21 @@ class GlobalTag:
 			out += "{{Display Tagged Resource |1=" + tag_url + " |2=" + odp_url + " |3=" + r.name + "}},"
 		return out
 
-	def related_print(self):
-		out = ""
-#		for r in self.related:
-#			out += str(r) + ","
-		return out
-
+	def set_related(self,global_tags):
+		from nltk.corpus import wordnet as wn
+		self.related = []
+		n=wn.synsets(self.label)
+		if n == []:
+			return			
+		
+		for x in range(0,len(global_tags)):
+			g=wn.synsets(global_tags[x].label)
+			if (g != []) and (global_tags[x].label != self.label):
+				#a = max(g[i].path_similarity(n[0]) for i in range(len(g)))
+				b = max(g[i].wup_similarity(n[0]) for i in range(len(g)))
+				if b >= .8:
+					self.related.append(global_tags[x])
+		return
 
 class LocalTag:
 	def __init__(self,name,url,count, lang):

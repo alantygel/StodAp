@@ -5,4 +5,4 @@ import functions
 
 functions.LoadODPs()
 functions.LoadODPData()
-
+functions.ListCooccurences()

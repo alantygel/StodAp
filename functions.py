@@ -517,13 +517,14 @@ def find_in_tags(ODP, name):
 			if t.name.lower() == name.lower():
 				result.append(model.LocalTag(t.name,o.url, t.count, o.lang))
 	return result				
-	
+
 def WriteWikiPages():
 	
 	with open(config.global_tags_file, 'rb') as input:
 		global_tags = pickle.load(input)
 
 	pages_ODP = open(config.wiki_out_file, 'wb')
+
 	for g in global_tags:
 		
 		pages_ODP.write(g.label + '\n\n')
@@ -535,10 +536,11 @@ def WriteWikiPages():
 			pages_ODP.write('|1=' + g.description.encode('utf-8') + '\n')
 		pages_ODP.write('|2=' + str(g.resources_print()) + '\n')
 		pages_ODP.write('|3=' + g.local_tags_print().encode('utf-8') + '\n')
-		pages_ODP.write('|4=' + str(g.related_print()) + '\n')
+		pages_ODP.write('|4=' + g.related_print() + '\n')
 		pages_ODP.write('}}' + '\n')
 
 		pages_ODP.write('--ENDPAGE--\n\n')
+
 
 def SignificanceOfTagsWithMeaning():
 	
@@ -568,5 +570,22 @@ def SignificanceOfTagsWithMeaning():
  	print "With meaning (sig): " + str(S/float(N)*100)
  	print "Not analysed (sig): " + str(X/float(N)*100)
  	print "No meaning (sig): " + str(Z/float(N)*100)
+
+def ListCooccurences():
+
+	with open(config.objects_file, 'rb') as input:
+		ODP =  pickle.load(input)
+	
+	for o in ODP:
+		for t in o.tags:
+			print "Tag: " + t.name
+			for c in t.cooccurences:
+					for tt in o.tags:
+						if c == tt.tag_id:
+							print ">> " + tt.name
+							break
+	
+
+
 
 
