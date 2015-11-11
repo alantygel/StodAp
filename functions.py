@@ -125,10 +125,6 @@ def CalculateStats():
 	print("Tags with meaning (max): %.2f" % tags_with_meaning.max())
 	print("Tags with meaning (min): %.2f" % tags_with_meaning.min())
 
-def GroupStats():
-	with open(config.groups_file, 'rb') as input:
-		ODP =  pickle.load(input)
-
 	tg = 0
 	N = 0
 	no_groups =0
@@ -138,17 +134,19 @@ def GroupStats():
 			tg += len(o.groups)
 			N += 1
 			for g in o.groups:
-				if g.n_datatasets > 0:
-					ds_group.append(g.n_datatasets)
+				if g.n_datasets > 0:
+					ds_group.append(g.n_datasets)
 		else:
 			no_groups += 1
 	
 	ds_group = numpy.array(ds_group);
 
+	print "------"
 	print 'Number of groups: ' , str(tg)
 	print 'ODP without groups: ' , str(no_groups)
 	print 'Groups / ODP: ' , str(tg/float(N))
 	print 'Datasets / Group: ' , ds_group.mean()
+
 
 
 def CalculateUniqueTags():
